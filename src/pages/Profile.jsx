@@ -15,7 +15,7 @@ function Profile() {
         setLoading(true);
 
         const response = await fetch(
-          "http://localhost:5001/api/public/profile"
+          `${import.meta.env.VITE_API_BASE}/api/public/profile`
         );
 
         const data = await response.json();

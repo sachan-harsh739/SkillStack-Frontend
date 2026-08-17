@@ -32,7 +32,7 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const response = await fetch("http://localhost:5001/api/users", {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE}/api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
