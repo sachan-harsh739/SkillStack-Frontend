@@ -23,7 +23,7 @@ function Login() {
   e.preventDefault();
 
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_BASE}/api/auth/login`, {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE}/api/auth/admin-login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ function Login() {
 };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen bg-slate-50">
 
       {/* MAIN CONTAINER */}
 
@@ -81,7 +81,7 @@ function Login() {
                   Skill
                 </span>
 
-                <span className="text-blue-600">
+                <span className="text-slate-950">
                   Stack
                 </span>
               </Link>
@@ -97,7 +97,7 @@ function Login() {
 
             <div className="mb-7">
 
-              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-600">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-950">
                 Welcome Back
               </p>
 
@@ -106,7 +106,7 @@ function Login() {
               </h1>
 
               <p className="mt-3 max-w-md text-slate-500">
-                Sign in to manage your projects, education, certifications,
+                Sign in to manage your expertise, history, certifications,
                 LeetCode progress and achievements.
               </p>
 
@@ -115,7 +115,7 @@ function Login() {
 
             {/* LOGIN CARD */}
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/50 sm:p-8">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
 
               <form onSubmit={handleSubmit}>
 
@@ -138,7 +138,7 @@ function Login() {
                     onChange={handleChange}
                     placeholder="Enter your email"
                     required
-                    className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                    className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
                   />
 
                 </div>
@@ -165,7 +165,7 @@ function Login() {
                       onChange={handleChange}
                       placeholder="Enter your password"
                       required
-                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 pr-12 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 pr-12 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
                     />
 
                     <button
@@ -198,7 +198,7 @@ function Login() {
                       onChange={(e) =>
                         setRememberMe(e.target.checked)
                       }
-                      className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                      className="h-4 w-4 rounded border-slate-300 text-slate-950 focus:ring-slate-950/10"
                     />
 
                     Keep me logged in
@@ -208,7 +208,7 @@ function Login() {
 
                   <button
                     type="button"
-                    className="text-left text-sm font-medium text-blue-600 hover:text-blue-700 sm:text-right"
+                    className="text-left text-sm font-medium text-slate-950 hover:text-slate-700 sm:text-right"
                   >
                     Forgot Password?
                   </button>
@@ -220,7 +220,7 @@ function Login() {
 
                 <button
                   type="submit"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-200 transition hover:bg-blue-700 hover:shadow-lg"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-slate-950 px-5 py-3.5 text-sm font-semibold text-white shadow-md shadow-slate-200 transition hover:bg-slate-800 hover:shadow-lg"
                 >
                   <span>→</span>
                   Sign In to SkillStack
@@ -238,7 +238,7 @@ function Login() {
 
                   <Link
                     to="/register"
-                    className="font-semibold text-blue-600 hover:text-blue-700"
+                    className="font-semibold text-slate-950 hover:text-slate-700"
                   >
                     Create Account
                   </Link>
@@ -255,13 +255,13 @@ function Login() {
 
           <div className="hidden lg:block">
 
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-900 p-8 shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl bg-slate-950 p-8 shadow-2xl">
 
               {/* Decorative circles */}
 
-              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl" />
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
 
-              <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl" />
+              <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
 
 
               {/* CONTENT */}
@@ -270,21 +270,21 @@ function Login() {
 
                 <div className="mb-8">
 
-                  <span className="inline-flex rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-medium text-blue-200">
+                  <span className="inline-flex rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-medium text-white/70">
                     Developer Platform
                   </span>
 
                   <h2 className="mt-5 text-3xl font-bold leading-tight text-white">
                     Everything you build,
                     <br />
-                    <span className="text-blue-400">
+                    <span className="text-white">
                       in one place.
                     </span>
                   </h2>
 
                   <p className="mt-4 max-w-md text-sm leading-6 text-slate-300">
                     SkillStack helps developers organize their complete
-                    professional journey — from education and projects to
+                    professional journey — from history and expertise to
                     coding progress and achievements.
                   </p>
 
@@ -301,7 +301,7 @@ function Login() {
 
                     <div className="flex items-center gap-2">
 
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-xs font-bold text-slate-950">
                         S
                       </div>
 
@@ -323,7 +323,7 @@ function Login() {
                     <div className="rounded-xl bg-white/10 p-4">
 
                       <p className="text-xs text-slate-400">
-                        Projects
+                        Expertise
                       </p>
 
                       <p className="mt-1 text-2xl font-bold text-white">
@@ -384,7 +384,7 @@ function Login() {
                         LeetCode Progress
                       </p>
 
-                      <span className="text-xs font-semibold text-blue-400">
+                      <span className="text-xs font-semibold text-white">
                         450+
                       </span>
 
@@ -394,27 +394,27 @@ function Login() {
                     <div className="mt-4 flex h-20 items-end gap-2">
 
                       <div
-                        className="w-full rounded-t-md bg-blue-500/60"
+                        className="w-full rounded-t-md bg-white/30"
                         style={{ height: "35%" }}
                       />
 
                       <div
-                        className="w-full rounded-t-md bg-blue-500/70"
+                        className="w-full rounded-t-md bg-white/45"
                         style={{ height: "55%" }}
                       />
 
                       <div
-                        className="w-full rounded-t-md bg-blue-500/80"
+                        className="w-full rounded-t-md bg-white/60"
                         style={{ height: "45%" }}
                       />
 
                       <div
-                        className="w-full rounded-t-md bg-blue-500"
+                        className="w-full rounded-t-md bg-white/80"
                         style={{ height: "75%" }}
                       />
 
                       <div
-                        className="w-full rounded-t-md bg-indigo-400"
+                        className="w-full rounded-t-md bg-white"
                         style={{ height: "90%" }}
                       />
 
@@ -429,7 +429,7 @@ function Login() {
 
                 <div className="mt-6 flex items-center gap-3">
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/20 text-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-lg">
                     🚀
                   </div>
 

@@ -346,11 +346,11 @@ function AdminCertifications() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#080808] text-white">
+      <main className="min-h-screen bg-white text-slate-950">
 
         <div className="flex min-h-screen items-center justify-center">
 
-          <p className="text-white/40">
+          <p className="text-slate-500">
             Loading certifications...
           </p>
 
@@ -365,17 +365,17 @@ function AdminCertifications() {
   // ==========================================
 
   return (
-    <main className="min-h-screen bg-[#080808] text-white">
+    <main className="min-h-screen bg-white text-slate-950">
 
       {/* HEADER */}
 
-      <header className="border-b border-white/[0.08]">
+      <header className="border-b border-slate-200">
 
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-6 sm:px-8">
 
           <div>
 
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
               SkillStack Admin
             </p>
 
@@ -387,7 +387,7 @@ function AdminCertifications() {
 
           <button
             onClick={() => navigate("/admin")}
-            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-white/70 transition hover:bg-white/[0.08] hover:text-white"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-950"
           >
             ← Dashboard
           </button>
@@ -403,7 +403,7 @@ function AdminCertifications() {
         {/* ERROR */}
 
         {error && (
-          <div className="mb-6 rounded-xl border border-red-400/20 bg-red-500/10 px-5 py-4 text-sm text-red-300">
+          <div className="mb-6 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-600">
             {error}
           </div>
         )}
@@ -411,7 +411,7 @@ function AdminCertifications() {
         {/* SUCCESS */}
 
         {success && (
-          <div className="mb-6 rounded-xl border border-emerald-400/20 bg-emerald-500/10 px-5 py-4 text-sm text-emerald-300">
+          <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm text-emerald-600">
             {success}
           </div>
         )}
@@ -422,10 +422,10 @@ function AdminCertifications() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 sm:p-8"
+          className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
         >
 
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-purple-400">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-purple-600">
             {editingId
               ? "Edit Certification"
               : "Add Certification"}
@@ -443,7 +443,7 @@ function AdminCertifications() {
 
             <div className="md:col-span-2">
 
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Certificate Name
               </label>
 
@@ -454,7 +454,7 @@ function AdminCertifications() {
                 onChange={handleChange}
                 required
                 placeholder="AWS Cloud Practitioner"
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-purple-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
               />
 
             </div>
@@ -463,7 +463,7 @@ function AdminCertifications() {
 
             <div>
 
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Issuing Organization
               </label>
 
@@ -474,7 +474,7 @@ function AdminCertifications() {
                 onChange={handleChange}
                 required
                 placeholder="Amazon Web Services"
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-purple-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
               />
 
             </div>
@@ -483,7 +483,7 @@ function AdminCertifications() {
 
             <div>
 
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Issue Date
               </label>
 
@@ -492,7 +492,7 @@ function AdminCertifications() {
                 name="issueDate"
                 value={form.issueDate}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-purple-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
               />
 
             </div>
@@ -501,7 +501,7 @@ function AdminCertifications() {
 
             <div>
 
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Credential ID
               </label>
 
@@ -511,7 +511,7 @@ function AdminCertifications() {
                 value={form.credentialId}
                 onChange={handleChange}
                 placeholder="ABC123456"
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-purple-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
               />
 
             </div>
@@ -520,7 +520,7 @@ function AdminCertifications() {
 
             <div>
 
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Credential URL
               </label>
 
@@ -530,7 +530,7 @@ function AdminCertifications() {
                 value={form.credentialUrl}
                 onChange={handleChange}
                 placeholder="https://..."
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-purple-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
               />
 
             </div>
@@ -539,13 +539,13 @@ function AdminCertifications() {
 
           {/* BUTTONS */}
 
-          <div className="mt-8 flex justify-end gap-3 border-t border-white/[0.08] pt-6">
+          <div className="mt-8 flex justify-end gap-3 border-t border-slate-200 pt-6">
 
             {editingId && (
               <button
                 type="button"
                 onClick={resetForm}
-                className="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white/70 transition hover:bg-white/[0.08] hover:text-white"
+                className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-950"
               >
                 Cancel
               </button>
@@ -554,7 +554,7 @@ function AdminCertifications() {
             <button
               type="submit"
               disabled={saving}
-              className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-xl bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {saving
                 ? "Saving..."
@@ -577,7 +577,7 @@ function AdminCertifications() {
 
             <div>
 
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-purple-400">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-purple-600">
                 Current Certifications
               </p>
 
@@ -587,7 +587,7 @@ function AdminCertifications() {
 
             </div>
 
-            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/40">
+            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-500">
               {certifications.length} certification
               {certifications.length !== 1
                 ? "s"
@@ -598,13 +598,13 @@ function AdminCertifications() {
 
           {certifications.length === 0 ? (
 
-            <div className="mt-6 rounded-2xl border border-dashed border-white/10 bg-white/[0.02] p-12 text-center">
+            <div className="mt-6 rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-12 text-center">
 
               <div className="text-3xl">
                 🏆
               </div>
 
-              <p className="mt-4 text-sm text-white/40">
+              <p className="mt-4 text-sm text-slate-500">
                 No certifications added yet.
               </p>
 
@@ -619,7 +619,7 @@ function AdminCertifications() {
 
                   <article
                     key={certification.id}
-                    className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6"
+                    className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
                   >
 
                     <div className="flex items-start justify-between gap-4">
@@ -632,7 +632,7 @@ function AdminCertifications() {
                           }
                         </h3>
 
-                        <p className="mt-2 text-sm text-purple-300">
+                        <p className="mt-2 text-sm text-purple-600">
                           {
                             certification.issuingOrganization
                           }
@@ -640,17 +640,17 @@ function AdminCertifications() {
 
                       </div>
 
-                      <span className="shrink-0 text-xs text-white/20">
+                      <span className="shrink-0 text-xs text-slate-400">
                         CERTIFICATION
                       </span>
 
                     </div>
 
-                    <div className="mt-5 space-y-2 text-sm text-white/40">
+                    <div className="mt-5 space-y-2 text-sm text-slate-500">
 
                       {certification.issueDate && (
                         <p>
-                          <span className="text-white/60">
+                          <span className="text-slate-600">
                             Issued:
                           </span>{" "}
                           {String(
@@ -661,7 +661,7 @@ function AdminCertifications() {
 
                       {certification.credentialId && (
                         <p>
-                          <span className="text-white/60">
+                          <span className="text-slate-600">
                             Credential ID:
                           </span>{" "}
                           {
@@ -679,13 +679,13 @@ function AdminCertifications() {
                         }
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-5 inline-block text-sm font-semibold text-blue-400 hover:text-blue-300"
+                        className="mt-5 inline-block text-sm font-semibold text-slate-700 hover:text-slate-950"
                       >
                         View Credential ↗
                       </a>
                     )}
 
-                    <div className="mt-6 flex justify-end gap-2 border-t border-white/[0.07] pt-5">
+                    <div className="mt-6 flex justify-end gap-2 border-t border-slate-200 pt-5">
 
                       <button
                         type="button"
@@ -694,7 +694,7 @@ function AdminCertifications() {
                             certification
                           )
                         }
-                        className="rounded-lg border border-blue-400/20 bg-blue-500/10 px-3 py-2 text-xs font-semibold text-blue-300 hover:bg-blue-500/20"
+                        className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100"
                       >
                         Edit
                       </button>
@@ -710,7 +710,7 @@ function AdminCertifications() {
                           deletingId ===
                           certification.id
                         }
-                        className="rounded-lg border border-red-400/20 bg-red-500/10 px-3 py-2 text-xs font-semibold text-red-300 hover:bg-red-500/20 disabled:opacity-50"
+                        className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-100 disabled:opacity-50"
                       >
                         {deletingId ===
                         certification.id

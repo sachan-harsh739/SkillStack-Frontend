@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5001";
 
-function Projects() {
-  const [projects, setProjects] = useState([]);
+function Expertise() {
+  const [projects, setExpertise] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -23,33 +23,33 @@ function Projects() {
   });
 
   // ==========================================
-  // FETCH PROJECTS
+  // FETCH EXPERTISE
   // ==========================================
 
-  const fetchProjects = async () => {
+  const fetchExpertise = async () => {
     try {
       setLoading(true);
       setError("");
 
       const response = await fetch(
-        `${API_BASE}/api/projects`
+        `${API_BASE}/api/expertise`
       );
 
       const data = await response.json();
 
       if (!response.ok) {
         throw new Error(
-          data.message || "Failed to fetch projects"
+          data.message || "Failed to fetch expertise"
         );
       }
 
-      setProjects(
+      setExpertise(
         Array.isArray(data) ? data : []
       );
 
     } catch (error) {
       console.error(
-        "Fetch projects error:",
+        "Fetch expertise error:",
         error
       );
 
@@ -61,7 +61,7 @@ function Projects() {
   };
 
   useEffect(() => {
-    fetchProjects();
+    fetchExpertise();
   }, []);
 
 
@@ -150,20 +150,20 @@ function Projects() {
 
 
   // ==========================================
-  // ADD / UPDATE PROJECT
+  // ADD / UPDATE EXPERTISE
   // ==========================================
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!form.title.trim()) {
-      setError("Project title is required.");
+      setError("Expertise title is required.");
       return;
     }
 
     if (!form.description.trim()) {
       setError(
-        "Project description is required."
+        "Expertise description is required."
       );
       return;
     }
@@ -174,8 +174,8 @@ function Projects() {
 
     try {
       const url = editingProject
-        ? `${API_BASE}/api/projects/${editingProject.id}`
-        : `${API_BASE}/api/projects`;
+        ? `${API_BASE}/api/expertise/${editingProject.id}`
+        : `${API_BASE}/api/expertise`;
 
       const method = editingProject
         ? "PUT"
@@ -202,23 +202,23 @@ function Projects() {
       if (!response.ok) {
         throw new Error(
           data.message ||
-            "Failed to save project"
+            "Failed to save expertise"
         );
       }
 
       setSuccess(
         editingProject
-          ? "Project updated successfully!"
-          : "Project added successfully!"
+          ? "Expertise updated successfully!"
+          : "Expertise added successfully!"
       );
 
       closeForm();
 
-      await fetchProjects();
+      await fetchExpertise();
 
     } catch (error) {
       console.error(
-        "Project save error:",
+        "Expertise save error:",
         error
       );
 
@@ -231,12 +231,12 @@ function Projects() {
 
 
   // ==========================================
-  // DELETE PROJECT
+  // DELETE EXPERTISE
   // ==========================================
 
   const deleteProject = async (id) => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this project?"
+      "Are you sure you want to delete this expertise?"
     );
 
     if (!confirmed) {
@@ -248,7 +248,7 @@ function Projects() {
       setSuccess("");
 
       const response = await fetch(
-        `${API_BASE}/api/projects/${id}`,
+        `${API_BASE}/api/expertise/${id}`,
         {
           method: "DELETE",
         }
@@ -259,19 +259,19 @@ function Projects() {
       if (!response.ok) {
         throw new Error(
           data.message ||
-            "Failed to delete project"
+            "Failed to delete expertise"
         );
       }
 
       setSuccess(
-        "Project deleted successfully!"
+        "Expertise deleted successfully!"
       );
 
-      await fetchProjects();
+      await fetchExpertise();
 
     } catch (error) {
       console.error(
-        "Delete project error:",
+        "Delete expertise error:",
         error
       );
 
@@ -286,14 +286,14 @@ function Projects() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#0d0d0d] px-5 py-20 text-white">
+      <main className="min-h-screen bg-white px-5 py-20 text-slate-950">
 
         <div className="mx-auto max-w-7xl text-center">
 
-          <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-white/20 border-t-white" />
+          <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-slate-200 border-t-slate-950" />
 
-          <p className="mt-5 text-sm tracking-wide text-white/50">
-            Loading projects...
+          <p className="mt-5 text-sm tracking-wide text-slate-500">
+            Loading expertise...
           </p>
 
         </div>
@@ -304,7 +304,7 @@ function Projects() {
 
 
   // ==========================================
-  // PROJECT CARD
+  // EXPERTISE CARD
   // ==========================================
 
   const ProjectCard = ({ project }) => {
@@ -321,28 +321,21 @@ function Projects() {
         className="
           group relative flex min-h-[500px]
           flex-col overflow-hidden rounded-sm
-          bg-[#f7f7f5]
+          bg-white
+          border border-slate-200
           text-slate-900
-          shadow-[0_20px_60px_rgba(0,0,0,0.25)]
+          shadow-sm
           transition duration-500
           hover:-translate-y-2
-          hover:shadow-[0_30px_80px_rgba(0,0,0,0.4)]
+          hover:shadow-md
         "
       >
 
-        {/* PROJECT VISUAL */}
+        {/* EXPERTISE VISUAL */}
 
-        <div className="relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950">
+        <div className="relative flex h-48 items-center justify-center overflow-hidden bg-slate-100 border-b border-slate-200">
 
-          <div className="absolute inset-0 opacity-20">
-
-            <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-blue-500 blur-3xl" />
-
-            <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-purple-500 blur-3xl" />
-
-          </div>
-
-          <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-2xl border border-white/20 bg-white/10 text-3xl font-bold text-white backdrop-blur">
+          <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-2xl border border-slate-200 bg-white text-3xl font-bold text-slate-700">
 
             &lt;/&gt;
 
@@ -381,7 +374,7 @@ function Projects() {
         <div className="flex flex-1 flex-col p-7">
 
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
-            Featured Project
+            Featured Expertise
           </p>
 
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900">
@@ -390,7 +383,7 @@ function Projects() {
 
           <p className="mt-4 flex-1 text-sm leading-7 text-slate-500">
             {project.description ||
-              "No project description available."}
+              "No expertise description available."}
           </p>
 
 
@@ -475,17 +468,17 @@ function Projects() {
   // ==========================================
 
   return (
-    <main className="min-h-screen bg-[#0d0d0d] text-white">
+    <main className="min-h-screen bg-white text-slate-950">
 
       {/* ======================================
           HEADER
       ====================================== */}
 
-      <section className="border-b border-white/10 px-5 py-16 sm:px-8 lg:px-12">
+      <section className="border-b border-slate-200 px-5 py-16 sm:px-8 lg:px-12">
 
         <div className="mx-auto max-w-7xl">
 
-          <p className="text-xs font-bold uppercase tracking-[0.35em] text-white/50">
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-slate-500">
             Developer Portfolio
           </p>
 
@@ -493,19 +486,19 @@ function Projects() {
 
             <div>
 
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                Projects
+              <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
+                Expertise
               </h1>
 
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/50 sm:text-base">
-                A collection of projects, technologies,
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
+                A collection of expertise, technologies,
                 source code and live demonstrations.
               </p>
 
             </div>
 
 
-            {/* ADD PROJECT */}
+            {/* ADD EXPERTISE */}
 
             <button
               onClick={
@@ -513,11 +506,11 @@ function Projects() {
                   ? closeForm
                   : openAddForm
               }
-              className="w-fit rounded-lg bg-white px-5 py-3 text-sm font-bold text-black transition hover:bg-white/90"
+              className="w-fit rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-800"
             >
               {showForm
                 ? "Close Form"
-                : "+ Add Project"}
+                : "+ Add Expertise"}
             </button>
 
           </div>
@@ -535,7 +528,7 @@ function Projects() {
 
         {success && (
 
-          <div className="mb-6 rounded-lg border border-green-400/20 bg-green-400/10 px-5 py-4 text-sm font-medium text-green-300">
+          <div className="mb-6 rounded-lg border border-green-200 bg-green-50 px-5 py-4 text-sm font-medium text-green-700">
             {success}
           </div>
 
@@ -543,7 +536,7 @@ function Projects() {
 
         {error && (
 
-          <div className="mb-6 rounded-lg border border-red-400/20 bg-red-400/10 px-5 py-4 text-sm font-medium text-red-300">
+          <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
             {error}
           </div>
 
@@ -562,20 +555,20 @@ function Projects() {
 
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-white/10 bg-[#181818] p-6 shadow-2xl sm:p-8"
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
           >
 
             <div className="mb-8">
 
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
-                Project Manager
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
+                Expertise Manager
               </p>
 
-              <h2 className="mt-2 text-2xl font-bold text-white">
+              <h2 className="mt-2 text-2xl font-bold text-slate-950">
 
                 {editingProject
-                  ? "Edit Project"
-                  : "Add New Project"}
+                  ? "Edit Expertise"
+                  : "Add New Expertise"}
 
               </h2>
 
@@ -588,8 +581,8 @@ function Projects() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
-                  Project Name
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                  Expertise Name
                 </label>
 
                 <input
@@ -597,9 +590,9 @@ function Projects() {
                   name="title"
                   value={form.title}
                   onChange={handleChange}
-                  placeholder="Project Name"
+                  placeholder="Expertise Name"
                   required
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -609,7 +602,7 @@ function Projects() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   Technologies
                 </label>
 
@@ -619,7 +612,7 @@ function Projects() {
                   value={form.tech}
                   onChange={handleChange}
                   placeholder="React, Node.js, MySQL"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -629,7 +622,7 @@ function Projects() {
 
               <div className="md:col-span-2">
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   Description
                 </label>
 
@@ -638,9 +631,9 @@ function Projects() {
                   value={form.description}
                   onChange={handleChange}
                   rows="5"
-                  placeholder="Describe your project..."
+                  placeholder="Describe your expertise..."
                   required
-                  className="w-full resize-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                  className="w-full resize-none rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -650,7 +643,7 @@ function Projects() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   GitHub URL
                 </label>
 
@@ -660,7 +653,7 @@ function Projects() {
                   value={form.github}
                   onChange={handleChange}
                   placeholder="https://github.com/..."
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -670,7 +663,7 @@ function Projects() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   Live Demo URL
                 </label>
 
@@ -680,7 +673,7 @@ function Projects() {
                   value={form.demo}
                   onChange={handleChange}
                   placeholder="https://..."
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -690,12 +683,12 @@ function Projects() {
 
             {/* BUTTONS */}
 
-            <div className="mt-7 flex justify-end gap-3 border-t border-white/10 pt-6">
+            <div className="mt-7 flex justify-end gap-3 border-t border-slate-200 pt-6">
 
               <button
                 type="button"
                 onClick={closeForm}
-                className="rounded-lg border border-white/10 px-5 py-3 text-sm font-semibold text-white/60 transition hover:bg-white/5 hover:text-white"
+                className="rounded-lg border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-950"
               >
                 Cancel
               </button>
@@ -703,14 +696,14 @@ function Projects() {
               <button
                 type="submit"
                 disabled={saving}
-                className="rounded-lg bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-lg bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
               >
 
                 {saving
                   ? "Saving..."
                   : editingProject
                   ? "Save Changes"
-                  : "Add Project"}
+                  : "Add Expertise"}
 
               </button>
 
@@ -724,23 +717,23 @@ function Projects() {
 
 
       {/* ======================================
-          PROJECTS
+          EXPERTISE
       ====================================== */}
 
       <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-12">
 
         <div className="mb-10 text-center">
 
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/40">
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
             My Work
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold text-white">
-            Featured Projects
+          <h2 className="mt-3 text-3xl font-bold text-slate-950">
+            Featured Expertise
           </h2>
 
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-white/40">
-            Explore the projects, technologies and
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-500">
+            Explore the expertise, technologies and
             solutions built throughout my developer journey.
           </p>
 
@@ -749,25 +742,25 @@ function Projects() {
 
         {projects.length === 0 ? (
 
-          <div className="rounded-2xl border border-dashed border-white/10 bg-white/[0.03] p-14 text-center">
+          <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-14 text-center">
 
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 text-2xl">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 text-2xl text-slate-700">
               &lt;/&gt;
             </div>
 
-            <h3 className="mt-5 text-lg font-bold text-white">
-              No projects yet
+            <h3 className="mt-5 text-lg font-bold text-slate-950">
+              No expertise yet
             </h3>
 
-            <p className="mt-2 text-sm text-white/40">
-              Projects will appear here once they are added.
+            <p className="mt-2 text-sm text-slate-500">
+              Expertise will appear here once it is added.
             </p>
 
             <button
               onClick={openAddForm}
-              className="mt-6 rounded-lg bg-white px-5 py-3 text-sm font-bold text-black"
+              className="mt-6 rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800"
             >
-              + Add First Project
+              + Add First Expertise
             </button>
 
           </div>
@@ -796,10 +789,10 @@ function Projects() {
           FOOTER
       ====================================== */}
 
-      <section className="border-t border-white/10 px-5 py-10 text-center">
+      <section className="border-t border-slate-200 px-5 py-10 text-center">
 
-        <p className="text-xs uppercase tracking-[0.3em] text-white/30">
-          SkillStack • Projects
+        <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+          SkillStack • Expertise
         </p>
 
       </section>
@@ -808,4 +801,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default Expertise;

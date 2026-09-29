@@ -38,7 +38,7 @@ function AdminEducation() {
   };
 
   // ==========================================
-  // LOAD EDUCATION
+  // LOAD HISTORY
   // ==========================================
 
   const fetchEducation = async () => {
@@ -76,7 +76,7 @@ function AdminEducation() {
 
       if (!response.ok) {
         throw new Error(
-          data.message || "Failed to load education"
+          data.message || "Failed to load history"
         );
       }
 
@@ -86,7 +86,7 @@ function AdminEducation() {
 
     } catch (error) {
       console.error(
-        "Education fetch error:",
+        "History fetch error:",
         error
       );
 
@@ -221,14 +221,14 @@ function AdminEducation() {
       if (!response.ok) {
         throw new Error(
           data.message ||
-            "Failed to save education"
+            "Failed to save history"
         );
       }
 
       setSuccess(
         editingId
-          ? "Education updated successfully! ✅"
-          : "Education added successfully! ✅"
+          ? "History updated successfully! ✅"
+          : "History added successfully! ✅"
       );
 
       resetForm();
@@ -237,7 +237,7 @@ function AdminEducation() {
 
     } catch (error) {
       console.error(
-        "Education save error:",
+        "History save error:",
         error
       );
 
@@ -253,7 +253,7 @@ function AdminEducation() {
 
   const handleDelete = async (id) => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this education record?"
+      "Are you sure you want to delete this history record?"
     );
 
     if (!confirmed) {
@@ -301,12 +301,12 @@ function AdminEducation() {
       if (!response.ok) {
         throw new Error(
           data.message ||
-            "Failed to delete education"
+            "Failed to delete history"
         );
       }
 
       setSuccess(
-        "Education deleted successfully! ✅"
+        "History deleted successfully! ✅"
       );
 
       if (editingId === id) {
@@ -317,7 +317,7 @@ function AdminEducation() {
 
     } catch (error) {
       console.error(
-        "Education delete error:",
+        "History delete error:",
         error
       );
 
@@ -333,12 +333,12 @@ function AdminEducation() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#080808] text-white">
+      <main className="min-h-screen bg-white text-slate-950">
 
         <div className="flex min-h-screen items-center justify-center">
 
-          <p className="text-white/40">
-            Loading education...
+          <p className="text-slate-500">
+            Loading history...
           </p>
 
         </div>
@@ -352,29 +352,29 @@ function AdminEducation() {
   // ==========================================
 
   return (
-    <main className="min-h-screen bg-[#080808] text-white">
+    <main className="min-h-screen bg-white text-slate-950">
 
       {/* HEADER */}
 
-      <header className="border-b border-white/[0.08]">
+      <header className="border-b border-slate-200">
 
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-6 sm:px-8">
 
           <div>
 
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
               SkillStack Admin
             </p>
 
             <h1 className="mt-1 text-2xl font-bold">
-              Manage Education
+              Manage History
             </h1>
 
           </div>
 
           <button
             onClick={() => navigate("/admin")}
-            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-white/70 transition hover:bg-white/[0.08] hover:text-white"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-950"
           >
             ← Dashboard
           </button>
@@ -388,13 +388,13 @@ function AdminEducation() {
       <section className="mx-auto max-w-6xl px-5 py-10 sm:px-8">
 
         {error && (
-          <div className="mb-6 rounded-xl border border-red-400/20 bg-red-500/10 px-5 py-4 text-sm text-red-300">
+          <div className="mb-6 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-600">
             {error}
           </div>
         )}
 
         {success && (
-          <div className="mb-6 rounded-xl border border-emerald-400/20 bg-emerald-500/10 px-5 py-4 text-sm text-emerald-300">
+          <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm text-emerald-700">
             {success}
           </div>
         )}
@@ -405,21 +405,21 @@ function AdminEducation() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 sm:p-8"
+          className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
         >
 
           <div className="mb-8">
 
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-400">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
               {editingId
-                ? "Edit Education"
-                : "Add Education"}
+                ? "Edit History"
+                : "Add History"}
             </p>
 
             <h2 className="mt-2 text-2xl font-bold">
               {editingId
-                ? "Update education"
-                : "Add new education"}
+                ? "Update history"
+                : "Add new history"}
             </h2>
 
           </div>
@@ -429,15 +429,15 @@ function AdminEducation() {
             {/* TYPE */}
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white/70">
-                Education Type
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
+                History Type
               </label>
 
               <select
                 name="type"
                 value={form.type}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-blue-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none focus:border-slate-950 focus:ring-slate-950/10"
               >
                 <option value="graduation">
                   Graduation
@@ -456,7 +456,7 @@ function AdminEducation() {
             {/* INSTITUTION */}
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Institution
               </label>
 
@@ -467,14 +467,14 @@ function AdminEducation() {
                 onChange={handleChange}
                 required
                 placeholder="Institution name"
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-blue-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-slate-950/10"
               />
             </div>
 
             {/* DEGREE */}
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Degree
               </label>
 
@@ -484,14 +484,14 @@ function AdminEducation() {
                 value={form.degree}
                 onChange={handleChange}
                 placeholder="B.Tech, BCA, etc."
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-blue-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-slate-950/10"
               />
             </div>
 
             {/* SPECIALIZATION */}
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Specialization
               </label>
 
@@ -501,14 +501,14 @@ function AdminEducation() {
                 value={form.specialization}
                 onChange={handleChange}
                 placeholder="Computer Science & Engineering"
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-blue-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-slate-950/10"
               />
             </div>
 
             {/* START YEAR */}
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Start Year
               </label>
 
@@ -518,14 +518,14 @@ function AdminEducation() {
                 value={form.startYear}
                 onChange={handleChange}
                 placeholder="2023"
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-blue-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-slate-950/10"
               />
             </div>
 
             {/* END YEAR */}
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 End Year
               </label>
 
@@ -535,14 +535,14 @@ function AdminEducation() {
                 value={form.endYear}
                 onChange={handleChange}
                 placeholder="2027"
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-blue-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-slate-950/10"
               />
             </div>
 
             {/* SCORE */}
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Score / CGPA / Percentage
               </label>
 
@@ -552,14 +552,14 @@ function AdminEducation() {
                 value={form.score}
                 onChange={handleChange}
                 placeholder="7.79 CGPA"
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-blue-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-slate-950/10"
               />
             </div>
 
             {/* YEAR */}
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white/70">
+              <label className="mb-2 block text-sm font-semibold text-slate-600">
                 Year
               </label>
 
@@ -569,7 +569,7 @@ function AdminEducation() {
                 value={form.year}
                 onChange={handleChange}
                 placeholder="2023"
-                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-white/20 focus:border-blue-400/50"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-slate-950/10"
               />
             </div>
 
@@ -577,13 +577,13 @@ function AdminEducation() {
 
           {/* BUTTONS */}
 
-          <div className="mt-8 flex flex-wrap justify-end gap-3 border-t border-white/[0.08] pt-6">
+          <div className="mt-8 flex flex-wrap justify-end gap-3 border-t border-slate-200 pt-6">
 
             {editingId && (
               <button
                 type="button"
                 onClick={resetForm}
-                className="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white/70 transition hover:bg-white/[0.08] hover:text-white"
+                className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-950"
               >
                 Cancel
               </button>
@@ -592,13 +592,13 @@ function AdminEducation() {
             <button
               type="submit"
               disabled={saving}
-              className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-xl bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {saving
                 ? "Saving..."
                 : editingId
-                ? "Update Education"
-                : "Add Education"}
+                ? "Update History"
+                : "Add History"}
             </button>
 
           </div>
@@ -606,7 +606,7 @@ function AdminEducation() {
         </form>
 
         {/* ==========================================
-            EDUCATION LIST
+            HISTORY LIST
             ========================================== */}
 
         <section className="mt-10">
@@ -615,17 +615,17 @@ function AdminEducation() {
 
             <div>
 
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-purple-400">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
                 Current Records
               </p>
 
               <h2 className="mt-2 text-2xl font-bold">
-                Your Education
+                Your History
               </h2>
 
             </div>
 
-            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/40">
+            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-500">
               {education.length} record
               {education.length !== 1 ? "s" : ""}
             </span>
@@ -634,14 +634,14 @@ function AdminEducation() {
 
           {education.length === 0 ? (
 
-            <div className="mt-6 rounded-2xl border border-dashed border-white/10 bg-white/[0.02] p-12 text-center">
+            <div className="mt-6 rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-12 text-center">
 
               <div className="text-3xl">
                 🎓
               </div>
 
-              <p className="mt-4 text-sm text-white/40">
-                No education records added yet.
+              <p className="mt-4 text-sm text-slate-500">
+                No history records added yet.
               </p>
 
             </div>
@@ -654,7 +654,7 @@ function AdminEducation() {
 
                 <article
                   key={item.id}
-                  className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6"
+                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
                 >
 
                   <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
@@ -663,7 +663,7 @@ function AdminEducation() {
 
                       <div className="flex flex-wrap items-center gap-2">
 
-                        <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-blue-300">
+                        <span className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600">
                           {item.type?.replace(
                             "_",
                             " "
@@ -675,21 +675,21 @@ function AdminEducation() {
                       <h3 className="mt-3 text-xl font-bold">
                         {item.degree ||
                           item.type ||
-                          "Education"}
+                          "History"}
                       </h3>
 
-                      <p className="mt-1 text-sm text-white/50">
+                      <p className="mt-1 text-sm text-slate-500">
                         {item.institution ||
                           "Institution"}
                       </p>
 
                       {item.specialization && (
-                        <p className="mt-2 text-sm text-white/35">
+                        <p className="mt-2 text-sm text-slate-400">
                           {item.specialization}
                         </p>
                       )}
 
-                      <div className="mt-4 flex flex-wrap gap-3 text-xs text-white/35">
+                      <div className="mt-4 flex flex-wrap gap-3 text-xs text-slate-400">
 
                         {(item.startYear ||
                           item.endYear) && (
@@ -723,7 +723,7 @@ function AdminEducation() {
                         onClick={() =>
                           handleEdit(item)
                         }
-                        className="rounded-xl border border-blue-400/20 bg-blue-500/10 px-4 py-2.5 text-sm font-semibold text-blue-300 transition hover:bg-blue-500/20"
+                        className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
                       >
                         Edit
                       </button>
@@ -735,7 +735,7 @@ function AdminEducation() {
                         disabled={
                           deletingId === item.id
                         }
-                        className="rounded-xl border border-red-400/20 bg-red-500/10 px-4 py-2.5 text-sm font-semibold text-red-300 transition hover:bg-red-500/20 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-600 transition hover:bg-red-100 disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         {deletingId === item.id
                           ? "Deleting..."

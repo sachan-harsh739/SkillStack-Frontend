@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import heroImage from "../assets/hero.png";
 
 const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5001";
 
 function Home() {
   const [profile, setProfile] = useState(null);
-  const [projects, setProjects] = useState([]);
-  const [education, setEducation] = useState([]);
-  const [certifications, setCertifications] = useState([]);
   const [leetcode, setLeetcode] = useState(null);
 
   const [loading, setLoading] = useState(true);
@@ -24,36 +20,15 @@ function Home() {
 
         const [
           profileResponse,
-          projectsResponse,
-          educationResponse,
-          certificationResponse,
           leetcodeResponse,
         ] = await Promise.all([
           fetch(`${API_BASE}/api/public/profile`),
-          fetch(`${API_BASE}/api/public/projects`),
-          fetch(`${API_BASE}/api/public/education`),
-          fetch(`${API_BASE}/api/public/certifications`),
           fetch(`${API_BASE}/api/public/leetcode`),
         ]);
 
         if (profileResponse.ok) {
           const data = await profileResponse.json();
           setProfile(data);
-        }
-
-        if (projectsResponse.ok) {
-          const data = await projectsResponse.json();
-          setProjects(Array.isArray(data) ? data : []);
-        }
-
-        if (educationResponse.ok) {
-          const data = await educationResponse.json();
-          setEducation(Array.isArray(data) ? data : []);
-        }
-
-        if (certificationResponse.ok) {
-          const data = await certificationResponse.json();
-          setCertifications(Array.isArray(data) ? data : []);
         }
 
         if (leetcodeResponse.ok) {
@@ -76,12 +51,12 @@ function Home() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#080808] text-white">
+      <main className="min-h-screen bg-white text-slate-950">
         <div className="flex min-h-[80vh] items-center justify-center">
           <div className="text-center">
-            <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-white/10 border-t-white" />
+            <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-slate-200 border-t-slate-950" />
 
-            <p className="mt-5 text-sm text-white/40">
+            <p className="mt-5 text-sm text-slate-500">
               Loading portfolio...
             </p>
           </div>
@@ -91,713 +66,159 @@ function Home() {
   }
 
   // ==========================================
-  // FALLBACK PROFILE
-  // ==========================================
-
-  const name = profile?.name || "Developer";
-
-  const initials = name
-    .split(" ")
-    .map((word) => word.charAt(0))
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-
-  // ==========================================
   // HOME
   // ==========================================
 
   return (
-    <main className="min-h-screen bg-[#080808] text-white">
+    <main className="min-h-screen bg-white text-slate-950">
 
       {/* ==================================================
           HERO
       ================================================== */}
 
-      <section className="relative overflow-hidden border-b border-white/[0.07]">
+      <section
+        id="home"
+        className="relative min-h-[calc(100vh-56px)] overflow-hidden bg-[#fafbfc]"
+      >
 
-        {/* Background */}
+        {/* Decorative wavy line background */}
 
-        <div className="pointer-events-none absolute inset-0">
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-80"
+          viewBox="0 0 1440 800"
+          preserveAspectRatio="none"
+        >
+          <g fill="none" stroke="#d9d9d9" strokeWidth="1">
+            <path d="M-100 250 C250 300 350 600 700 450 C1050 300 1150 50 1550 150" />
+            <path d="M-100 260 C250 310 350 610 700 460 C1050 310 1150 60 1550 160" />
+            <path d="M-100 270 C250 320 350 620 700 470 C1050 320 1150 70 1550 170" />
+            <path d="M-100 280 C250 330 350 630 700 480 C1050 330 1150 80 1550 180" />
+            <path d="M-100 290 C250 340 350 640 700 490 C1050 340 1150 90 1550 190" />
+            <path d="M-100 300 C250 350 350 650 700 500 C1050 350 1150 100 1550 200" />
+            <path d="M-100 310 C250 360 350 660 700 510 C1050 360 1150 110 1550 210" />
+            <path d="M-100 320 C250 370 350 670 700 520 C1050 370 1150 120 1550 220" />
+            <path d="M-100 330 C250 380 350 680 700 530 C1050 380 1150 130 1550 230" />
+            <path d="M-100 340 C250 390 350 690 700 540 C1050 390 1150 140 1550 240" />
+            <path d="M-100 350 C250 400 350 700 700 550 C1050 400 1150 150 1550 250" />
+            <path d="M-100 360 C250 410 350 710 700 560 C1050 410 1150 160 1550 260" />
+            <path d="M-100 370 C250 420 350 720 700 570 C1050 420 1150 170 1550 270" />
+            <path d="M-100 380 C250 430 350 730 700 580 C1050 430 1150 180 1550 280" />
+            <path d="M-100 390 C250 440 350 740 700 590 C1050 440 1150 190 1550 290" />
+            <path d="M-100 400 C250 450 350 750 700 600 C1050 450 1150 200 1550 300" />
+            <path d="M-100 410 C250 460 350 760 700 610 C1050 460 1150 210 1550 310" />
+            <path d="M-100 420 C250 470 350 770 700 620 C1050 470 1150 220 1550 320" />
+            <path d="M-100 430 C250 480 350 780 700 630 C1050 480 1150 230 1550 330" />
+            <path d="M-100 440 C250 490 350 790 700 640 C1050 490 1150 240 1550 340" />
+            <path d="M-100 450 C250 500 350 800 700 650 C1050 500 1150 250 1550 350" />
+            <path d="M-100 460 C250 510 350 810 700 660 C1050 510 1150 260 1550 360" />
+            <path d="M-100 470 C250 520 350 820 700 670 C1050 520 1150 270 1550 370" />
+          </g>
+        </svg>
 
-          <div className="absolute left-[-120px] top-[-100px] h-[400px] w-[400px] rounded-full bg-blue-600/20 blur-[120px]" />
+        {/* Hero content */}
 
-          <div className="absolute right-[-100px] top-[100px] h-[350px] w-[350px] rounded-full bg-purple-600/15 blur-[120px]" />
+        <div className="relative z-10 mx-auto w-[970px] max-w-[calc(100%-80px)] pt-[120px] pb-24 sm:pt-[188px]">
 
-          <div className="absolute bottom-[-150px] left-[35%] h-[300px] w-[300px] rounded-full bg-indigo-600/10 blur-[120px]" />
+          {/* SOCIAL ICONS */}
 
-        </div>
+          <div className="mt-10 mb-[10px] flex items-center gap-2">
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-5 py-20 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-12 lg:py-28">
-
-          {/* LEFT */}
-
-          <div>
-
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2">
-
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                Available for opportunities
-              </span>
-
-            </div>
-
-            <p className="mt-8 text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
-              Developer Portfolio
-            </p>
-
-            <h1 className="mt-4 max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-
-              Hi, I'm{" "}
-
-              <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                {name}
-              </span>
-
-              <span className="text-white">.</span>
-
-            </h1>
-
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/50 sm:text-xl">
-
-              {profile?.university ||
-                "Computer Science & Engineering"}
-
-              {profile?.graduationYear && (
-                <>
-                  <span className="mx-2 text-white/20">
-                    •
-                  </span>
-
-                  Graduation {profile.graduationYear}
-                </>
-              )}
-
-            </p>
-
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/40 sm:text-base">
-              I build modern software applications,
-              solve real-world problems and continuously
-              improve my skills through projects,
-              education and coding.
-            </p>
-
-            {/* ACTIONS */}
-
-            <div className="mt-9 flex flex-wrap gap-3">
-
-              <Link
-                to="/projects"
-                className="rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-white/10 transition duration-300 hover:-translate-y-0.5 hover:bg-white/90"
+            {(
+              <a
+                href={profile?.linkedinUrl || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="flex h-9 w-9 items-center justify-center text-slate-950 transition-transform hover:-translate-y-1"
               >
-                Explore My Work →
-              </Link>
+                <svg viewBox="0 0 24 24" className="h-[35px] w-[35px] fill-current">
+                  <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4V24h-4V8ZM8 8h3.83v2.19h.05c.53-1 1.83-2.57 3.76-2.57 4.02 0 4.76 2.65 4.76 6.1V24h-4v-9.12c0-2.18-.04-4.98-3.04-4.98-3.04 0-3.5 2.37-3.5 4.82V24H8V8Z" />
+                </svg>
+              </a>
+            )}
 
-              <Link
-                to="/profile"
-                className="rounded-xl border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white/80 transition duration-300 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+            {(
+              <a
+                href={profile?.githubUrl || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="flex h-9 w-9 items-center justify-center text-slate-950 transition-transform hover:-translate-y-1"
               >
-                View Profile
-              </Link>
+                <svg viewBox="0 0 24 24" className="h-[35px] w-[35px] fill-current">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.85 10.91.57.1.78-.25.78-.55v-2.16c-3.19.69-3.86-1.54-3.86-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.03 1.75 2.7 1.24 3.36.95.1-.74.4-1.24.73-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.17A10.9 10.9 0 0 1 12 6.1c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.63 1.57.24 2.73.12 3.02.74.8 1.18 1.82 1.18 3.07 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.08.78 2.18v3.23c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                </svg>
+              </a>
+            )}
 
-            </div>
-
-            {/* SOCIAL */}
-
-            <div className="mt-8 flex flex-wrap gap-3">
-
-              {profile?.githubUrl && (
-                <a
-                  href={profile.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg border border-white/10 px-4 py-2 text-xs font-semibold text-white/50 transition hover:border-white/20 hover:text-white"
-                >
-                  GitHub ↗
-                </a>
-              )}
-
-              {profile?.linkedinUrl && (
-                <a
-                  href={profile.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg border border-white/10 px-4 py-2 text-xs font-semibold text-white/50 transition hover:border-blue-400/30 hover:text-blue-400"
-                >
-                  LinkedIn ↗
-                </a>
-              )}
-
-              {leetcode?.profileUrl && (
-                <a
-                  href={leetcode.profileUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg border border-white/10 px-4 py-2 text-xs font-semibold text-white/50 transition hover:border-orange-400/30 hover:text-orange-400"
-                >
-                  LeetCode ↗
-                </a>
-              )}
-
-            </div>
+            {profile?.portfolioUrl && (
+              <a
+                href={profile.portfolioUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Resume"
+                className="flex h-9 w-9 items-center justify-center text-slate-950 transition-transform hover:-translate-y-1"
+              >
+                <svg viewBox="0 0 24 24" className="h-[35px] w-[35px]">
+                  <rect x="4" y="2" width="16" height="20" rx="1" fill="currentColor" />
+                  <rect x="7" y="6" width="10" height="2" fill="white" />
+                  <rect x="7" y="10" width="10" height="2" fill="white" />
+                  <rect x="7" y="14" width="7" height="2" fill="white" />
+                </svg>
+              </a>
+            )}
 
           </div>
 
+          {/* NAME */}
 
-          {/* RIGHT */}
+          <h1 className="text-[64px] font-extrabold leading-[0.99] tracking-[-2px] text-[#050505] sm:text-[92px] sm:tracking-[-4px] lg:text-[132px] lg:tracking-[-6px]">
+            {profile?.name || "Harsh Sachan"}
+          </h1>
 
-          <div className="relative mx-auto w-full max-w-[500px]">
+          {/* ROLE */}
 
-            <div className="absolute inset-0 rounded-full bg-blue-600/20 blur-[100px]" />
-
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 shadow-2xl shadow-black/40 backdrop-blur">
-
-              <div className="mb-4 flex items-center gap-2 px-2">
-
-                <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-
-                <span className="ml-3 text-xs text-white/30">
-                  skillstack.dev
-                </span>
-
-              </div>
-
-              <div className="overflow-hidden rounded-2xl bg-[#111]">
-
-                <img
-                  src={heroImage}
-                  alt="Developer"
-                  className="w-full object-contain"
-                />
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ==================================================
-          STATS
-      ================================================== */}
-
-      <section className="border-b border-white/[0.07]">
-
-        <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/[0.07] sm:grid-cols-4">
-
-          <div className="px-5 py-8 text-center sm:py-10">
-
-            <p className="text-3xl font-bold text-white sm:text-4xl">
-              {projects.length}
-            </p>
-
-            <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/30">
-              Projects
-            </p>
-
-          </div>
-
-          <div className="px-5 py-8 text-center sm:py-10">
-
-            <p className="text-3xl font-bold text-white sm:text-4xl">
-              {education.length}
-            </p>
-
-            <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/30">
-              Education
-            </p>
-
-          </div>
-
-          <div className="px-5 py-8 text-center sm:py-10">
-
-            <p className="text-3xl font-bold text-white sm:text-4xl">
-              {certifications.length}
-            </p>
-
-            <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/30">
-              Certifications
-            </p>
-
-          </div>
-
-          <div className="px-5 py-8 text-center sm:py-10">
-
-            <p className="text-3xl font-bold text-white sm:text-4xl">
-              {leetcode ? "✓" : "—"}
-            </p>
-
-            <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/30">
-              LeetCode
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ==================================================
-          PROJECTS
-      ================================================== */}
-
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
-
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-
-          <div>
-
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400">
-              Selected Work
-            </p>
-
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Featured Projects
-            </h2>
-
-            <p className="mt-3 max-w-xl text-sm leading-6 text-white/40">
-              A selection of projects built using modern
-              technologies and practical problem solving.
-            </p>
-
-          </div>
-
-          <Link
-            to="/projects"
-            className="text-sm font-semibold text-white/50 transition hover:text-white"
-          >
-            View all projects →
-          </Link>
-
-        </div>
-
-
-        {projects.length === 0 ? (
-
-          <div className="mt-10 rounded-2xl border border-dashed border-white/10 bg-white/[0.02] p-14 text-center">
-
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-xl">
-              &lt;/&gt;
-            </div>
-
-            <p className="mt-5 text-sm text-white/40">
-              No projects added yet.
-            </p>
-
-          </div>
-
-        ) : (
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-            {projects.slice(0, 3).map((project, index) => {
-
-              const technologies = project.technologies
-                ? project.technologies
-                    .split(",")
-                    .map((item) => item.trim())
-                    .filter(Boolean)
-                : [];
-
-              return (
-                <article
-                  key={project.id}
-                  className="group relative flex min-h-[390px] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.035] p-6 transition duration-500 hover:-translate-y-2 hover:border-blue-400/20 hover:bg-white/[0.055] hover:shadow-2xl hover:shadow-blue-950/20"
-                >
-
-                  <div className="flex items-center justify-between">
-
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] font-mono text-sm text-blue-400">
-                      0{index + 1}
-                    </div>
-
-                    <span className="text-xs text-white/20">
-                      PROJECT
-                    </span>
-
-                  </div>
-
-                  <h3 className="mt-8 text-2xl font-bold text-white">
-                    {project.title}
-                  </h3>
-
-                  <p className="mt-4 flex-1 text-sm leading-7 text-white/40">
-                    {project.description ||
-                      "No project description available."}
-                  </p>
-
-                  {technologies.length > 0 && (
-                    <div className="mt-6 flex flex-wrap gap-2">
-
-                      {technologies.slice(0, 5).map(
-                        (technology, techIndex) => (
-                          <span
-                            key={`${technology}-${techIndex}`}
-                            className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-medium text-white/50"
-                          >
-                            {technology}
-                          </span>
-                        )
-                      )}
-
-                    </div>
-                  )}
-
-                  <div className="mt-7 flex gap-5 border-t border-white/[0.07] pt-5">
-
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-semibold text-white/60 transition hover:text-white"
-                      >
-                        GitHub ↗
-                      </a>
-                    )}
-
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-semibold text-blue-400 transition hover:text-blue-300"
-                      >
-                        Live Demo ↗
-                      </a>
-                    )}
-
-                  </div>
-
-                </article>
-              );
-            })}
-
-          </div>
-
-        )}
-
-      </section>
-
-
-      {/* ==================================================
-          EDUCATION
-      ================================================== */}
-
-      <section className="border-y border-white/[0.07] bg-white/[0.015]">
-
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
-
-          <div className="flex items-end justify-between">
-
-            <div>
-
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-indigo-400">
-                Academic Journey
-              </p>
-
-              <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
-                Education
-              </h2>
-
-            </div>
-
-            <Link
-              to="/education"
-              className="text-sm font-semibold text-white/50 hover:text-white"
-            >
-              View all →
-            </Link>
-
-          </div>
-
-
-          {education.length === 0 ? (
-
-            <div className="mt-10 rounded-2xl border border-dashed border-white/10 p-10 text-center text-sm text-white/40">
-              No education details added yet.
-            </div>
-
-          ) : (
-
-            <div className="relative mt-12">
-
-              <div className="absolute bottom-0 left-[19px] top-0 w-px bg-gradient-to-b from-blue-500/60 via-purple-500/30 to-transparent" />
-
-              <div className="space-y-8">
-
-                {education.slice(0, 3).map((item) => (
-
-                  <div
-                    key={item.id}
-                    className="relative flex gap-6"
-                  >
-
-                    <div className="relative z-10 mt-1 h-10 w-10 shrink-0 rounded-full border border-blue-400/20 bg-[#080808] p-2">
-
-                      <div className="h-full w-full rounded-full bg-blue-500/20" />
-
-                    </div>
-
-                    <div className="flex-1 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 transition hover:border-white/15">
-
-                      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-
-                        <div>
-
-                          <h3 className="text-lg font-bold text-white">
-                            {item.degree ||
-                              item.type ||
-                              "Education"}
-                          </h3>
-
-                          <p className="mt-1 text-sm text-white/40">
-                            {item.institution ||
-                              item.university ||
-                              "Institution"}
-                          </p>
-
-                        </div>
-
-                        {(item.startYear ||
-                          item.endYear ||
-                          item.year) && (
-
-                          <span className="w-fit rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/40">
-
-                            {item.startYear &&
-                            item.endYear
-                              ? `${item.startYear} - ${item.endYear}`
-                              : item.year || ""}
-
-                          </span>
-
-                        )}
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                ))}
-
-              </div>
-
-            </div>
-
-          )}
-
-        </div>
-
-      </section>
-
-
-      {/* ==================================================
-          CERTIFICATION + LEETCODE
-      ================================================== */}
-
-      <section className="mx-auto grid max-w-7xl gap-6 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:px-12">
-
-        {/* CERTIFICATIONS */}
-
-        <div className="group rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 transition duration-300 hover:border-purple-400/20">
-
-          <div className="flex items-center justify-between">
-
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/10 text-xl">
-              🏆
-            </div>
-
-            <span className="text-xs font-semibold uppercase tracking-widest text-white/25">
-              Achievements
-            </span>
-
-          </div>
-
-          <h2 className="mt-8 text-2xl font-bold text-white">
-            Certifications
-          </h2>
-
-          <p className="mt-3 text-sm leading-7 text-white/40">
-
-            {certifications.length > 0
-              ? `${certifications.length} certification${
-                  certifications.length > 1
-                    ? "s"
-                    : ""
-                } added to the portfolio.`
-              : "No certifications added yet."}
-
+          <p className="mt-[38px] text-xl font-normal leading-[1.2] text-[#151515] sm:text-[28px]">
+            Full Stack Developer
           </p>
 
-          {certifications.length > 0 && (
-            <div className="mt-6 space-y-3">
+          {/* EDUCATION */}
 
-              {certifications.slice(0, 2).map((certificate) => (
-
-                <div
-                  key={certificate.id}
-                  className="rounded-xl border border-white/[0.07] bg-black/20 p-4"
-                >
-
-                  <p className="font-semibold text-white">
-                    {certificate.certificateName}
-                  </p>
-
-                  <p className="mt-1 text-xs text-white/35">
-                    {certificate.issuingOrganization}
-                  </p>
-
-                </div>
-
-              ))}
-
-            </div>
+          {(profile?.university || profile?.graduationYear) && (
+            <p className="mt-[17px] text-base text-[#61758a] sm:text-[18px]">
+              {[profile?.university, profile?.graduationYear ? `Class of ${profile.graduationYear}` : null]
+                .filter(Boolean)
+                .join(" · ")}
+            </p>
           )}
 
-          <Link
-            to="/certification"
-            className="mt-7 inline-block text-sm font-semibold text-purple-400 transition hover:text-purple-300"
-          >
-            View Certifications →
-          </Link>
+          {/* ACTIONS */}
 
-        </div>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
 
+            <Link
+              to="/expertise"
+              className="rounded-xl bg-slate-950 px-6 py-3.5 text-sm font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-slate-800"
+            >
+              Explore My Work →
+            </Link>
 
-        {/* LEETCODE */}
-
-        <div className="group rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 transition duration-300 hover:border-orange-400/20">
-
-          <div className="flex items-center justify-between">
-
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-xl">
-              🧩
-            </div>
-
-            <span className="text-xs font-semibold uppercase tracking-widest text-white/25">
-              Coding Profile
-            </span>
-
-          </div>
-
-          <h2 className="mt-8 text-2xl font-bold text-white">
-            LeetCode
-          </h2>
-
-          {leetcode ? (
-
-            <>
-              <p className="mt-3 text-sm leading-7 text-white/40">
-                Coding profile connected as
-                <span className="ml-1 font-semibold text-white/80">
-                  {leetcode.username}
-                </span>
-              </p>
-
+            {leetcode?.profileUrl && (
               <a
                 href={leetcode.profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-7 inline-block text-sm font-semibold text-orange-400 transition hover:text-orange-300"
+                className="rounded-lg border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-600 transition hover:border-orange-200 hover:text-orange-600"
               >
-                View LeetCode Profile →
+                LeetCode ↗
               </a>
-            </>
-
-          ) : (
-
-            <>
-              <p className="mt-3 text-sm leading-7 text-white/40">
-                No LeetCode profile connected yet.
-              </p>
-
-              <Link
-                to="/leetcode"
-                className="mt-7 inline-block text-sm font-semibold text-orange-400 transition hover:text-orange-300"
-              >
-                Connect LeetCode →
-              </Link>
-            </>
-
-          )}
-
-        </div>
-
-      </section>
-
-
-      {/* ==================================================
-          FINAL CTA
-      ================================================== */}
-
-      <section className="px-5 pb-20 sm:px-8 lg:px-12">
-
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-600/20 via-indigo-600/10 to-purple-600/20 px-6 py-16 text-center sm:px-10">
-
-          <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-96 -translate-x-1/2 rounded-full bg-blue-500/20 blur-[100px]" />
-
-          <div className="relative">
-
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-300">
-              Let's Connect
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">
-              Explore my developer journey.
-            </h2>
-
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/40">
-              Explore my projects, academic background,
-              certifications and coding profile.
-            </p>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-
-              <Link
-                to="/projects"
-                className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-white/90"
-              >
-                View Projects →
-              </Link>
-
-              <Link
-                to="/profile"
-                className="rounded-xl border border-white/10 bg-white/[0.05] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                View Profile
-              </Link>
-
-            </div>
+            )}
 
           </div>
 
         </div>
 
       </section>
-
-
-      {/* ==================================================
-          FOOTER
-      ================================================== */}
-
-      <footer className="border-t border-white/[0.07] px-5 py-8 text-center">
-
-        <p className="text-xs uppercase tracking-[0.25em] text-white/25">
-          SkillStack • Developer Portfolio
-        </p>
-
-      </footer>
 
     </main>
   );

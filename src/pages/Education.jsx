@@ -54,7 +54,7 @@ function Education() {
   };
 
   // ==========================================
-  // FETCH PUBLIC EDUCATION
+  // FETCH PUBLIC HISTORY
   // ==========================================
 
   const fetchEducation = async () => {
@@ -70,7 +70,7 @@ function Education() {
 
       if (!response.ok) {
         throw new Error(
-          data.message || "Failed to fetch education"
+          data.message || "Failed to fetch history"
         );
       }
 
@@ -79,7 +79,7 @@ function Education() {
       );
     } catch (error) {
       console.error(
-        "Education fetch error:",
+        "History fetch error:",
         error
       );
 
@@ -211,7 +211,7 @@ function Education() {
 
     if (!token) {
       setError(
-        "Login required to add or edit education."
+        "Login required to add or edit history."
       );
       return;
     }
@@ -348,14 +348,14 @@ function Education() {
       if (!response.ok) {
         throw new Error(
           data.message ||
-            "Failed to save education"
+            "Failed to save history"
         );
       }
 
       setSuccess(
         editingId
-          ? "Education updated successfully!"
-          : "Education added successfully!"
+          ? "History updated successfully!"
+          : "History added successfully!"
       );
 
       closeForm();
@@ -363,7 +363,7 @@ function Education() {
       await fetchEducation();
     } catch (error) {
       console.error(
-        "Save education error:",
+        "Save history error:",
         error
       );
 
@@ -382,13 +382,13 @@ function Education() {
 
     if (!token) {
       setError(
-        "Login required to delete education."
+        "Login required to delete history."
       );
       return;
     }
 
     const confirmed = window.confirm(
-      "Are you sure you want to delete this education?"
+      "Are you sure you want to delete this history record?"
     );
 
     if (!confirmed) return;
@@ -413,18 +413,18 @@ function Education() {
       if (!response.ok) {
         throw new Error(
           data.message ||
-            "Failed to delete education"
+            "Failed to delete history"
         );
       }
 
       setSuccess(
-        "Education deleted successfully!"
+        "History deleted successfully!"
       );
 
       await fetchEducation();
     } catch (error) {
       console.error(
-        "Delete education error:",
+        "Delete history error:",
         error
       );
 
@@ -433,7 +433,7 @@ function Education() {
   };
 
   // ==========================================
-  // FIND EDUCATION BY TYPE
+  // FIND HISTORY BY TYPE
   // ==========================================
 
   const graduation = education.find(
@@ -461,12 +461,12 @@ function Education() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#0d0d0d] px-5 py-20 text-white">
+      <main className="min-h-screen bg-white px-5 py-20 text-slate-950">
         <div className="mx-auto max-w-7xl text-center">
-          <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-white/20 border-t-white" />
+          <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-slate-200 border-t-slate-950" />
 
-          <p className="mt-5 text-sm tracking-wide text-white/50">
-            Loading education...
+          <p className="mt-5 text-sm tracking-wide text-slate-500">
+            Loading history...
           </p>
         </div>
       </main>
@@ -625,35 +625,33 @@ function Education() {
   // ==========================================
 
   return (
-    <main className="min-h-screen bg-[#0d0d0d] text-white">
+    <main className="min-h-screen bg-white text-slate-950">
 
       {/* ======================================
           HEADER
           ====================================== */}
 
-      <section className="border-b border-white/10 px-5 py-16 sm:px-8 lg:px-12">
+      <section className="border-b border-slate-200 px-5 py-16 sm:px-8 lg:px-12">
 
         <div className="mx-auto max-w-7xl">
 
-          <p className="text-xs font-bold uppercase tracking-[0.35em] text-white/60">
-            Education
-          </p>
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-slate-500">History</p>
 
           <div className="mt-3 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
 
             <div>
-              <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
-                Education & Degrees
+              <h1 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">
+                History & Degrees
               </h1>
 
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/50 sm:text-base">
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
                 Academic background, qualifications
-                and educational journey.
+                and learning history.
               </p>
             </div>
 
             {isOwner && (
-              <div className="text-sm text-white/40">
+              <div className="text-sm text-slate-500">
                 {education.length}{" "}
                 {education.length === 1
                   ? "qualification"
@@ -675,13 +673,13 @@ function Education() {
       <section className="mx-auto max-w-7xl px-5 pt-8 sm:px-8 lg:px-12">
 
         {success && (
-          <div className="mb-6 rounded-lg border border-green-400/20 bg-green-400/10 px-5 py-4 text-sm font-medium text-green-300">
+          <div className="mb-6 rounded-lg border border-green-200 bg-green-50 px-5 py-4 text-sm font-medium text-green-700">
             {success}
           </div>
         )}
 
         {error && (
-          <div className="mb-6 rounded-lg border border-red-400/20 bg-red-400/10 px-5 py-4 text-sm font-medium text-red-300">
+          <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
             {error}
           </div>
         )}
@@ -690,19 +688,19 @@ function Education() {
 
 
       {/* ======================================
-          EDUCATION CARDS
+          HISTORY CARDS
           ====================================== */}
 
       <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12 lg:py-16">
 
         <div className="mb-12 text-center">
 
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/40">
-            Academic Journey
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-400">
+            Learning History
           </p>
 
-          <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl">
-            My Education
+          <h2 className="mt-3 text-2xl font-bold text-slate-950 sm:text-3xl">
+            My History
           </h2>
 
         </div>
@@ -747,30 +745,28 @@ function Education() {
           ====================================== */}
 
       {showForm && formType && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/80 px-4 py-8 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/60 px-4 py-8 backdrop-blur-sm">
 
-          <div className="w-full max-w-2xl rounded-2xl border border-white/10 bg-[#181818] p-6 shadow-2xl sm:p-8">
+          <div className="w-full max-w-2xl rounded-2xl border border-slate-200 bg-white p-6 shadow-xl sm:p-8">
 
             {/* MODAL HEADER */}
 
             <div className="flex items-start justify-between">
 
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
-                  Education
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">History</p>
 
-                <h2 className="mt-2 text-2xl font-bold text-white">
+                <h2 className="mt-2 text-2xl font-bold text-slate-950">
                   {editingId
-                    ? "Edit Education"
-                    : "Add Education"}
+                    ? "Edit History"
+                    : "Add History"}
                 </h2>
               </div>
 
               <button
                 type="button"
                 onClick={closeForm}
-                className="text-2xl text-white/40 transition hover:text-white"
+                className="text-2xl text-slate-400 transition hover:text-slate-950"
               >
                 ×
               </button>
@@ -792,7 +788,7 @@ function Education() {
               {formType === "graduation" && (
                 <>
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-white/70">
+                    <label className="mb-2 block text-sm font-semibold text-slate-700">
                       University Name
                     </label>
 
@@ -805,7 +801,7 @@ function Education() {
                       }
                       onChange={handleChange}
                       placeholder="University Name"
-                      className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                      className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       required
                     />
                   </div>
@@ -813,7 +809,7 @@ function Education() {
                   <div className="grid gap-5 sm:grid-cols-2">
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-white/70">
+                      <label className="mb-2 block text-sm font-semibold text-slate-700">
                         Degree
                       </label>
 
@@ -826,13 +822,13 @@ function Education() {
                         }
                         onChange={handleChange}
                         placeholder="Degree"
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-white/70">
+                      <label className="mb-2 block text-sm font-semibold text-slate-700">
                         Specialization
                       </label>
 
@@ -845,7 +841,7 @@ function Education() {
                         }
                         onChange={handleChange}
                         placeholder="Specialization"
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       />
                     </div>
 
@@ -854,7 +850,7 @@ function Education() {
                   <div className="grid gap-5 sm:grid-cols-3">
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-white/70">
+                      <label className="mb-2 block text-sm font-semibold text-slate-700">
                         Start Year
                       </label>
 
@@ -867,12 +863,12 @@ function Education() {
                         }
                         onChange={handleChange}
                         placeholder="Start Year"
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-white/70">
+                      <label className="mb-2 block text-sm font-semibold text-slate-700">
                         End Year
                       </label>
 
@@ -885,12 +881,12 @@ function Education() {
                         }
                         onChange={handleChange}
                         placeholder="End Year"
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-white/70">
+                      <label className="mb-2 block text-sm font-semibold text-slate-700">
                         CGPA
                       </label>
 
@@ -903,7 +899,7 @@ function Education() {
                         }
                         onChange={handleChange}
                         placeholder="CGPA"
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       />
                     </div>
 
@@ -920,7 +916,7 @@ function Education() {
                 "higher_secondary" && (
                 <>
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-white/70">
+                    <label className="mb-2 block text-sm font-semibold text-slate-700">
                       School Name
                     </label>
 
@@ -934,7 +930,7 @@ function Education() {
                       }
                       onChange={handleChange}
                       placeholder="School Name"
-                      className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                      className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       required
                     />
                   </div>
@@ -942,7 +938,7 @@ function Education() {
                   <div className="grid gap-5 sm:grid-cols-2">
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-white/70">
+                      <label className="mb-2 block text-sm font-semibold text-slate-700">
                         Year
                       </label>
 
@@ -956,12 +952,12 @@ function Education() {
                         }
                         onChange={handleChange}
                         placeholder="Year"
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-white/70">
+                      <label className="mb-2 block text-sm font-semibold text-slate-700">
                         Percentage
                       </label>
 
@@ -975,7 +971,7 @@ function Education() {
                         }
                         onChange={handleChange}
                         placeholder="Percentage"
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       />
                     </div>
 
@@ -991,7 +987,7 @@ function Education() {
               {formType === "secondary" && (
                 <>
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-white/70">
+                    <label className="mb-2 block text-sm font-semibold text-slate-700">
                       School Name
                     </label>
 
@@ -1004,7 +1000,7 @@ function Education() {
                       }
                       onChange={handleChange}
                       placeholder="School Name"
-                      className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                      className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       required
                     />
                   </div>
@@ -1012,7 +1008,7 @@ function Education() {
                   <div className="grid gap-5 sm:grid-cols-2">
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-white/70">
+                      <label className="mb-2 block text-sm font-semibold text-slate-700">
                         Year
                       </label>
 
@@ -1024,12 +1020,12 @@ function Education() {
                         }
                         onChange={handleChange}
                         placeholder="Year"
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-white/70">
+                      <label className="mb-2 block text-sm font-semibold text-slate-700">
                         Percentage
                       </label>
 
@@ -1041,7 +1037,7 @@ function Education() {
                         }
                         onChange={handleChange}
                         placeholder="Percentage"
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-blue-500"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                       />
                     </div>
 
@@ -1052,12 +1048,12 @@ function Education() {
 
               {/* BUTTONS */}
 
-              <div className="flex justify-end gap-3 border-t border-white/10 pt-6">
+              <div className="flex justify-end gap-3 border-t border-slate-200 pt-6">
 
                 <button
                   type="button"
                   onClick={closeForm}
-                  className="rounded-lg border border-white/10 px-5 py-3 text-sm font-semibold text-white/60 transition hover:bg-white/5 hover:text-white"
+                  className="rounded-lg border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-950"
                 >
                   Cancel
                 </button>
@@ -1065,13 +1061,13 @@ function Education() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="rounded-lg bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-lg bg-slate-950 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {saving
                     ? "Saving..."
                     : editingId
                     ? "Save Changes"
-                    : "Add Education"}
+                    : "Add History"}
                 </button>
 
               </div>
@@ -1087,10 +1083,10 @@ function Education() {
           FOOTER
           ====================================== */}
 
-      <section className="border-t border-white/10 px-5 py-10 text-center">
+      <section className="border-t border-slate-200 px-5 py-10 text-center">
 
-        <p className="text-xs uppercase tracking-[0.3em] text-white/30">
-          SkillStack • Education
+        <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+          SkillStack • History
         </p>
 
       </section>

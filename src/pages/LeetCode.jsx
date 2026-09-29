@@ -305,13 +305,13 @@ function LeetCode() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#0d0d0d] px-5 py-20 text-white">
+      <main className="min-h-screen bg-white px-5 py-20 text-slate-950">
 
         <div className="mx-auto max-w-7xl text-center">
 
-          <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-white/20 border-t-orange-500" />
+          <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-slate-200 border-t-orange-500" />
 
-          <p className="mt-5 text-sm tracking-wide text-white/50">
+          <p className="mt-5 text-sm tracking-wide text-slate-500">
             Loading LeetCode profile...
           </p>
 
@@ -326,13 +326,13 @@ function LeetCode() {
   // ==========================================
 
   return (
-    <main className="min-h-screen bg-[#0d0d0d] text-white">
+    <main className="min-h-screen bg-white text-slate-950">
 
       {/* ======================================
           HEADER
       ====================================== */}
 
-      <section className="border-b border-white/10 px-5 py-16 sm:px-8 lg:px-12">
+      <section className="border-b border-slate-200 px-5 py-16 sm:px-8 lg:px-12">
 
         <div className="mx-auto max-w-7xl">
 
@@ -344,11 +344,11 @@ function LeetCode() {
 
             <div>
 
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
                 LeetCode
               </h1>
 
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/50 sm:text-base">
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
                 Explore the LeetCode profile and coding
                 journey showcased through SkillStack.
               </p>
@@ -366,7 +366,7 @@ function LeetCode() {
                     ? openEditForm
                     : openAddForm
                 }
-                className="w-fit rounded-lg bg-white px-5 py-3 text-sm font-bold text-black transition hover:bg-white/90"
+                className="w-fit rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-slate-800"
               >
                 {editing
                   ? "Close Form"
@@ -390,13 +390,13 @@ function LeetCode() {
       <section className="mx-auto max-w-7xl px-5 pt-8 sm:px-8 lg:px-12">
 
         {success && (
-          <div className="mb-6 rounded-lg border border-green-400/20 bg-green-400/10 px-5 py-4 text-sm font-medium text-green-300">
+          <div className="mb-6 rounded-lg border border-green-200 bg-green-50 px-5 py-4 text-sm font-medium text-green-700">
             {success}
           </div>
         )}
 
         {error && (
-          <div className="mb-6 rounded-lg border border-red-400/20 bg-red-400/10 px-5 py-4 text-sm font-medium text-red-300">
+          <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
             {error}
           </div>
         )}
@@ -414,7 +414,7 @@ function LeetCode() {
 
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-white/10 bg-[#181818] p-6 shadow-2xl sm:p-8"
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
           >
 
             <div className="mb-8">
@@ -423,13 +423,13 @@ function LeetCode() {
                 Profile Manager
               </p>
 
-              <h2 className="mt-2 text-2xl font-bold text-white">
+              <h2 className="mt-2 text-2xl font-bold text-slate-950">
                 {profile
                   ? "Edit LeetCode Profile"
                   : "Add LeetCode Profile"}
               </h2>
 
-              <p className="mt-2 text-sm text-white/40">
+              <p className="mt-2 text-sm text-slate-500">
                 Add your public LeetCode username and
                 profile URL.
               </p>
@@ -443,7 +443,7 @@ function LeetCode() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   LeetCode Username
                 </label>
 
@@ -454,7 +454,7 @@ function LeetCode() {
                   onChange={handleChange}
                   placeholder="Harsh_sachan"
                   required
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-orange-500"
+                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-orange-500"
                 />
 
               </div>
@@ -464,7 +464,7 @@ function LeetCode() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   LeetCode Profile URL
                 </label>
 
@@ -475,7 +475,7 @@ function LeetCode() {
                   onChange={handleChange}
                   placeholder="https://leetcode.com/u/username/"
                   required
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-orange-500"
+                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-orange-500"
                 />
 
               </div>
@@ -485,12 +485,12 @@ function LeetCode() {
 
             {/* BUTTONS */}
 
-            <div className="mt-7 flex justify-end gap-3 border-t border-white/10 pt-6">
+            <div className="mt-7 flex justify-end gap-3 border-t border-slate-200 pt-6">
 
               <button
                 type="button"
                 onClick={closeForm}
-                className="rounded-lg border border-white/10 px-5 py-3 text-sm font-semibold text-white/60 transition hover:bg-white/5 hover:text-white"
+                className="rounded-lg border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-950"
               >
                 Cancel
               </button>
@@ -524,35 +524,31 @@ function LeetCode() {
 
         {profile ? (
 
-          <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-[#f7f7f5] text-slate-900 shadow-[0_25px_80px_rgba(0,0,0,0.35)]">
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm">
 
             {/* PROFILE HEADER */}
 
-            <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-orange-950 px-7 py-12 sm:px-10">
-
-              <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-orange-500/20 blur-3xl" />
-
-              <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-orange-500/10 blur-3xl" />
+            <div className="relative overflow-hidden bg-slate-50 px-7 py-12 sm:px-10">
 
               <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
 
                 <div className="flex items-center gap-5">
 
-                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-white/20 bg-orange-500 text-3xl font-black text-white shadow-xl">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-slate-200 bg-orange-500 text-3xl font-black text-white shadow-sm">
                     LC
                   </div>
 
                   <div>
 
-                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-300">
+                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-600">
                       LeetCode Profile
                     </p>
 
-                    <h2 className="mt-2 text-3xl font-bold text-white">
+                    <h2 className="mt-2 text-3xl font-bold text-slate-950">
                       {profile.username}
                     </h2>
 
-                    <p className="mt-2 text-sm text-white/50">
+                    <p className="mt-2 text-sm text-slate-500">
                       Coding profile connected to SkillStack
                     </p>
 
@@ -663,17 +659,17 @@ function LeetCode() {
              NO PROFILE
              ==================================== */
 
-          <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/[0.03] p-12 text-center">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-white p-12 text-center shadow-sm">
 
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-orange-500/10 text-2xl font-black text-orange-500">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-orange-50 text-2xl font-black text-orange-600">
               LC
             </div>
 
-            <h2 className="mt-6 text-2xl font-bold text-white">
+            <h2 className="mt-6 text-2xl font-bold text-slate-950">
               LeetCode Profile
             </h2>
 
-            <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-white/40">
+            <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-slate-500">
               No LeetCode profile has been connected
               yet.
             </p>
@@ -698,9 +694,9 @@ function LeetCode() {
           FOOTER
       ====================================== */}
 
-      <section className="border-t border-white/10 px-5 py-10 text-center">
+      <section className="border-t border-slate-200 px-5 py-10 text-center">
 
-        <p className="text-xs uppercase tracking-[0.3em] text-white/30">
+        <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
           SkillStack • LeetCode
         </p>
 

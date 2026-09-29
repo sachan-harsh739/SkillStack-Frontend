@@ -9,16 +9,12 @@ function Navbar() {
       path: "/",
     },
     {
-      name: "Profile",
-      path: "/profile",
-    },
-    {
       name: "Education",
-      path: "/education",
+      path: "/history",
     },
     {
       name: "Projects",
-      path: "/projects",
+      path: "/expertise",
     },
     {
       name: "LeetCode",
@@ -31,9 +27,9 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[#080808]/90 text-white backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 text-slate-950 shadow-sm backdrop-blur-xl">
 
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
 
         {/* =====================================
             LOGO
@@ -44,12 +40,8 @@ function Navbar() {
           className="group flex items-center gap-2"
         >
 
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition group-hover:scale-105">
-            S
-          </div>
-
-          <div className="text-xl font-bold tracking-tight">
-            Skill<span className="text-blue-400">Stack</span>
+          <div className="text-sm font-extrabold tracking-tight text-slate-950">
+            SkillStack
           </div>
 
         </Link>
@@ -70,16 +62,16 @@ function Navbar() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative rounded-lg px-3 py-2 text-sm font-medium transition duration-200 ${
+                className={`relative px-3 py-2 text-xs font-medium transition duration-200 ${
                   isActive
-                    ? "bg-white/[0.08] text-white"
-                    : "text-white/50 hover:bg-white/[0.04] hover:text-white"
+                    ? "text-slate-950"
+                    : "text-slate-500 hover:text-slate-950"
                 }`}
               >
                 {item.name}
 
                 {isActive && (
-                  <span className="absolute bottom-0 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-blue-400" />
+                  <span className="absolute bottom-0 left-3 right-3 h-px bg-slate-950" />
                 )}
               </Link>
             );
@@ -93,19 +85,7 @@ function Navbar() {
             RIGHT SIDE
         ===================================== */}
 
-        <div className="hidden items-center gap-3 md:flex">
-
-          <div className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5">
-
-            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400/50" />
-
-            <span className="text-xs font-medium text-white/50">
-              Portfolio
-            </span>
-
-          </div>
-
-        </div>
+        <div className="hidden w-[92px] md:block" />
 
 
         {/* =====================================
@@ -116,7 +96,7 @@ function Navbar() {
 
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-white/70 transition hover:bg-white/[0.08] hover:text-white"
+            className="flex h-10 w-10 items-center justify-center border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100 hover:text-slate-950"
             aria-label="Open navigation"
             onClick={() => {
               const menu =
@@ -154,7 +134,7 @@ function Navbar() {
 
       <div
         id="mobile-menu"
-        className="hidden border-t border-white/[0.07] bg-[#080808] px-5 py-4 md:hidden"
+        className="hidden border-t border-slate-200 bg-white px-5 py-4 md:hidden"
       >
 
         <div className="space-y-1">
@@ -168,10 +148,10 @@ function Navbar() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`block rounded-lg px-4 py-3 text-sm font-medium transition ${
+                className={`block px-4 py-3 text-sm font-medium transition ${
                   isActive
-                    ? "bg-white/[0.08] text-white"
-                    : "text-white/50 hover:bg-white/[0.05] hover:text-white"
+                    ? "bg-slate-100 text-slate-950"
+                    : "text-slate-500 hover:bg-slate-50 hover:text-slate-950"
                 }`}
                 onClick={() => {
                   document

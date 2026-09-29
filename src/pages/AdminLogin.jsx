@@ -67,7 +67,7 @@ function AdminLogin() {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#080808] px-5 text-white">
+    <main className="flex min-h-screen items-center justify-center bg-slate-50 px-5 text-slate-950">
 
       <div className="w-full max-w-md">
 
@@ -75,7 +75,7 @@ function AdminLogin() {
 
         <div className="mb-8 text-center">
 
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-xl">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-slate-200 bg-white text-xl shadow-sm">
             🔐
           </div>
 
@@ -83,7 +83,7 @@ function AdminLogin() {
             Admin Login
           </h1>
 
-          <p className="mt-2 text-sm text-white/40">
+          <p className="mt-2 text-sm text-slate-500">
             Sign in to manage your SkillStack portfolio.
           </p>
 
@@ -93,14 +93,14 @@ function AdminLogin() {
 
         <form
           onSubmit={handleLogin}
-          className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 shadow-2xl"
+          className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"
         >
 
           {/* Email */}
 
           <div>
 
-            <label className="text-sm font-medium text-white/70">
+            <label className="text-sm font-medium text-slate-600">
               Admin Email
             </label>
 
@@ -112,7 +112,7 @@ function AdminLogin() {
               }
               placeholder="Enter admin email"
               required
-              className="mt-2 w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/20 focus:border-blue-400/50"
+              className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
             />
 
           </div>
@@ -121,7 +121,7 @@ function AdminLogin() {
 
           <div className="mt-5">
 
-            <label className="text-sm font-medium text-white/70">
+            <label className="text-sm font-medium text-slate-600">
               Password
             </label>
 
@@ -133,7 +133,7 @@ function AdminLogin() {
               }
               placeholder="Enter admin password"
               required
-              className="mt-2 w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/20 focus:border-blue-400/50"
+              className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
             />
 
           </div>
@@ -141,7 +141,7 @@ function AdminLogin() {
           {/* Error */}
 
           {error && (
-            <div className="mt-5 rounded-xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+            <div className="mt-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
               {error}
             </div>
           )}
@@ -151,7 +151,7 @@ function AdminLogin() {
           <button
             type="submit"
             disabled={loading}
-            className="mt-6 w-full rounded-xl bg-white px-5 py-3.5 text-sm font-bold text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50"
+            className="mt-6 w-full rounded-xl bg-slate-950 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading
               ? "Signing in..."
@@ -162,7 +162,7 @@ function AdminLogin() {
 
         {/* Security message */}
 
-        <p className="mt-5 text-center text-xs text-white/25">
+        <p className="mt-5 text-center text-xs text-slate-400">
           🔒 Private admin area • Authorized access only
         </p>
 

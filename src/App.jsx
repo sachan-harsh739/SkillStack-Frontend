@@ -1,17 +1,15 @@
 import AdminCertifications from "./pages/AdminCertifications";
-import AdminProjects from "./pages/AdminProjects";
+import AdminExpertise from "./pages/AdminProjects";
 import AdminEducation from "./pages/AdminEducation";
-import AdminProfile from "./pages/AdminProfile";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
-import Profile from "./pages/Profile";
 import Education from "./pages/Education";
-import Projects from "./pages/Projects";
+import Expertise from "./pages/Projects";
 import LeetCode from "./pages/LeetCode";
 import Certification from "./pages/Certification";
 
@@ -30,30 +28,40 @@ function App() {
       ===================================== */}
 
       <Routes>
-<Route
-  path="/admin-login"
-  element={<AdminLogin />}
-/>
-<Route
-  path="/admin"
-  element={<AdminDashboard />}
-/>
-<Route
-  path="/admin/profile"
-  element={<AdminProfile />}
-/>
-<Route
-  path="/admin/education"
-  element={<AdminEducation />}
-/>
-<Route
-  path="/admin/projects"
-  element={<AdminProjects />}
-/>
-<Route
-  path="/admin/certifications"
-  element={<AdminCertifications />}
-/>
+        <Route
+          path="/admin-login"
+          element={<AdminLogin />}
+        />
+
+        <Route
+          path="/admin"
+          element={<AdminDashboard />}
+        />
+
+        <Route
+          path="/admin/history"
+          element={<AdminEducation />}
+        />
+
+        <Route
+          path="/admin/education"
+          element={<Navigate to="/admin/history" replace />}
+        />
+
+        <Route
+          path="/admin/expertise"
+          element={<AdminExpertise />}
+        />
+
+        <Route
+          path="/admin/projects"
+          element={<Navigate to="/admin/expertise" replace />}
+        />
+
+        <Route
+          path="/admin/certifications"
+          element={<AdminCertifications />}
+        />
 
         {/* HOME */}
 
@@ -63,27 +71,29 @@ function App() {
         />
 
 
-        {/* PROFILE */}
+        {/* HISTORY */}
 
         <Route
-          path="/profile"
-          element={<Profile />}
-        />
-
-
-        {/* EDUCATION */}
-
-        <Route
-          path="/education"
+          path="/history"
           element={<Education />}
         />
 
+        <Route
+          path="/education"
+          element={<Navigate to="/history" replace />}
+        />
 
-        {/* PROJECTS */}
+
+        {/* EXPERTISE */}
+
+        <Route
+          path="/expertise"
+          element={<Expertise />}
+        />
 
         <Route
           path="/projects"
-          element={<Projects />}
+          element={<Navigate to="/expertise" replace />}
         />
 
 

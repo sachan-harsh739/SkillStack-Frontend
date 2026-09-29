@@ -64,7 +64,7 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 px-4 py-8 sm:px-6 lg:px-10">
+    <div className="min-h-screen bg-slate-50 px-4 py-8 sm:px-6 lg:px-10">
 
       <div className="mx-auto max-w-7xl">
 
@@ -77,16 +77,16 @@ const handleSubmit = async (e) => {
             className="text-3xl font-bold tracking-tight"
           >
             <span className="text-slate-900">Skill</span>
-            <span className="text-blue-600">Stack</span>
+            <span className="text-slate-950">Stack</span>
           </Link>
 
           <h1 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">
-            Create Your Unique Developer Profile
+            Create Your SkillStack Account
           </h1>
 
           <p className="mx-auto mt-2 max-w-xl text-sm text-slate-500">
             Create your SkillStack account and start building your
-            professional developer profile.
+            professional developer portfolio.
           </p>
 
         </div>
@@ -98,12 +98,12 @@ const handleSubmit = async (e) => {
 
           <div className="flex items-center justify-between text-xs font-medium">
 
-            <span className="text-blue-600">
+            <span className="text-slate-950">
               Account
             </span>
 
             <span className="text-slate-400">
-              Profile
+              Details
             </span>
 
             <span className="text-slate-400">
@@ -118,7 +118,7 @@ const handleSubmit = async (e) => {
 
           <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200">
 
-            <div className="h-full w-1/4 rounded-full bg-blue-600" />
+            <div className="h-full w-1/4 rounded-full bg-slate-950" />
 
           </div>
 
@@ -134,11 +134,11 @@ const handleSubmit = async (e) => {
 
           <div className="mx-auto w-full max-w-xl">
 
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/60">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
 
               {/* FORM HEADER */}
 
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-5 sm:px-8">
+              <div className="bg-slate-50 px-6 py-5 sm:px-8">
 
                 <h2 className="text-xl font-bold text-slate-900">
                   Create Your SkillStack Account
@@ -177,7 +177,7 @@ const handleSubmit = async (e) => {
                     onChange={handleChange}
                     placeholder="Enter your full name"
                     required
-                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
                   />
 
                 </div>
@@ -202,7 +202,7 @@ const handleSubmit = async (e) => {
                     onChange={handleChange}
                     placeholder="Enter your university or college"
                     required
-                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
                   />
 
                 </div>
@@ -227,7 +227,7 @@ const handleSubmit = async (e) => {
                       value={formData.graduationYear}
                       onChange={handleChange}
                       required
-                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
                     >
 
                       <option value="">
@@ -260,7 +260,7 @@ const handleSubmit = async (e) => {
                       value={formData.track}
                       onChange={handleChange}
                       required
-                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
                     >
 
                       <option value="">
@@ -313,7 +313,7 @@ const handleSubmit = async (e) => {
                     onChange={handleChange}
                     placeholder="Enter your email"
                     required
-                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
                   />
 
                 </div>
@@ -340,7 +340,7 @@ const handleSubmit = async (e) => {
                       onChange={handleChange}
                       placeholder="Create a password"
                       required
-                      className="w-full rounded-lg border border-slate-300 px-4 py-3 pr-12 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                      className="w-full rounded-lg border border-slate-300 px-4 py-3 pr-12 text-sm outline-none transition focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
                     />
 
                     <button
@@ -377,7 +377,7 @@ const handleSubmit = async (e) => {
                     onChange={handleChange}
                     placeholder="Confirm your password"
                     required
-                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
                   />
 
                 </div>
@@ -390,14 +390,14 @@ const handleSubmit = async (e) => {
                   <input
                     type="checkbox"
                     required
-                    className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                    className="mt-1 h-4 w-4 rounded border-slate-300 text-slate-950 focus:ring-slate-950/10"
                   />
 
                   <span>
                     I agree to the{" "}
                     <button
                       type="button"
-                      className="font-medium text-blue-600 hover:underline"
+                      className="font-medium text-slate-950 hover:underline"
                     >
                       Terms & Conditions
                     </button>{" "}
@@ -411,7 +411,7 @@ const handleSubmit = async (e) => {
 
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-200 transition hover:bg-blue-700 hover:shadow-xl"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-slate-950 px-5 py-3.5 text-sm font-semibold text-white shadow-lg shadow-slate-200 transition hover:bg-slate-800 hover:shadow-xl"
                 >
                   <span>🚀</span>
                   Create SkillStack Account
@@ -426,7 +426,7 @@ const handleSubmit = async (e) => {
 
                   <Link
                     to="/login"
-                    className="font-semibold text-blue-600 hover:text-blue-700"
+                    className="font-semibold text-slate-950 hover:text-slate-700"
                   >
                     Sign In
                   </Link>
@@ -448,11 +448,11 @@ const handleSubmit = async (e) => {
 
               {/* Main illustration */}
 
-              <div className="rounded-3xl bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-8 shadow-xl">
+              <div className="rounded-3xl bg-slate-50 p-8 shadow-xl">
 
                 {/* ICON */}
 
-                <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-600 text-5xl shadow-xl shadow-blue-200">
+                <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-3xl bg-slate-950 text-5xl shadow-xl shadow-slate-200">
                   💻
                 </div>
 
@@ -462,7 +462,7 @@ const handleSubmit = async (e) => {
                 </h2>
 
                 <p className="mx-auto mt-3 max-w-md text-center text-sm leading-6 text-slate-500">
-                  Create one professional profile where you can showcase
+                  Create one professional portfolio where you can showcase
                   everything you've achieved throughout your developer journey.
                 </p>
 
@@ -471,31 +471,31 @@ const handleSubmit = async (e) => {
 
                 <div className="mt-8 grid grid-cols-3 gap-3">
 
-                  <div className="rounded-2xl border border-blue-100 bg-white p-4 text-center shadow-sm">
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm">
 
                     <div className="text-2xl">
                       🎓
                     </div>
 
                     <p className="mt-2 text-sm font-semibold text-slate-800">
-                      Education
+                      History
                     </p>
 
                     <p className="mt-1 text-xs text-slate-400">
-                      Academic journey
+                      Academic history
                     </p>
 
                   </div>
 
 
-                  <div className="rounded-2xl border border-blue-100 bg-white p-4 text-center shadow-sm">
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm">
 
                     <div className="text-2xl">
                       🚀
                     </div>
 
                     <p className="mt-2 text-sm font-semibold text-slate-800">
-                      Projects
+                      Expertise
                     </p>
 
                     <p className="mt-1 text-xs text-slate-400">
@@ -505,7 +505,7 @@ const handleSubmit = async (e) => {
                   </div>
 
 
-                  <div className="rounded-2xl border border-blue-100 bg-white p-4 text-center shadow-sm">
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm">
 
                     <div className="text-2xl">
                       🏆
@@ -530,7 +530,7 @@ const handleSubmit = async (e) => {
 
                   <div className="rounded-xl bg-white/80 p-4">
 
-                    <p className="text-xs font-semibold text-blue-600">
+                    <p className="text-xs font-semibold text-slate-950">
                       LEETCODE
                     </p>
 

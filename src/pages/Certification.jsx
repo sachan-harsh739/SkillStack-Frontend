@@ -356,13 +356,13 @@ function Certification() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#0d0d0d] px-5 py-20 text-white">
+      <main className="min-h-screen bg-white px-5 py-20 text-slate-950">
 
         <div className="mx-auto max-w-7xl text-center">
 
-          <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-white/20 border-t-white" />
+          <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-slate-200 border-t-slate-950" />
 
-          <p className="mt-5 text-sm tracking-wide text-white/50">
+          <p className="mt-5 text-sm tracking-wide text-slate-500">
             Loading certifications...
           </p>
 
@@ -397,17 +397,9 @@ function Certification() {
             CERTIFICATE VISUAL
         ================================== */}
 
-        <div className="relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br from-purple-950 via-indigo-950 to-blue-950">
+        <div className="relative flex h-48 items-center justify-center overflow-hidden border-b border-slate-200 bg-slate-100">
 
-          <div className="absolute inset-0 opacity-20">
-
-            <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-purple-500 blur-3xl" />
-
-            <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-blue-500 blur-3xl" />
-
-          </div>
-
-          <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-2xl border border-white/20 bg-white/10 text-3xl backdrop-blur">
+          <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-2xl border border-slate-200 bg-white text-3xl shadow-sm">
             🏆
           </div>
 
@@ -455,7 +447,7 @@ function Certification() {
             {certification.certificateName}
           </h2>
 
-          <p className="mt-2 text-sm font-semibold text-indigo-600">
+          <p className="mt-2 text-sm font-semibold text-slate-600">
             {certification.issuingOrganization}
           </p>
 
@@ -523,17 +515,17 @@ function Certification() {
   // ==========================================
 
   return (
-    <main className="min-h-screen bg-[#0d0d0d] text-white">
+    <main className="min-h-screen bg-white text-slate-950">
 
       {/* ======================================
           HEADER
       ====================================== */}
 
-      <section className="border-b border-white/10 px-5 py-16 sm:px-8 lg:px-12">
+      <section className="border-b border-slate-200 px-5 py-16 sm:px-8 lg:px-12">
 
         <div className="mx-auto max-w-7xl">
 
-          <p className="text-xs font-bold uppercase tracking-[0.35em] text-white/50">
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-slate-500">
             Developer Portfolio
           </p>
 
@@ -541,11 +533,11 @@ function Certification() {
 
             <div>
 
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
                 Certifications
               </h1>
 
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/50 sm:text-base">
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
                 Professional certifications,
                 credentials and achievements
                 earned throughout my career journey.
@@ -560,7 +552,7 @@ function Certification() {
                     ? closeForm
                     : openAddForm
                 }
-                className="w-fit rounded-lg bg-white px-5 py-3 text-sm font-bold text-black transition hover:bg-white/90"
+                className="w-fit rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-800"
               >
                 {showForm
                   ? "Close Form"
@@ -581,13 +573,13 @@ function Certification() {
       <section className="mx-auto max-w-7xl px-5 pt-8 sm:px-8 lg:px-12">
 
         {success && (
-          <div className="mb-6 rounded-lg border border-green-400/20 bg-green-400/10 px-5 py-4 text-sm font-medium text-green-300">
+          <div className="mb-6 rounded-lg border border-green-200 bg-green-50 px-5 py-4 text-sm font-medium text-green-700">
             {success}
           </div>
         )}
 
         {error && (
-          <div className="mb-6 rounded-lg border border-red-400/20 bg-red-400/10 px-5 py-4 text-sm font-medium text-red-300">
+          <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-600">
             {error}
           </div>
         )}
@@ -603,16 +595,16 @@ function Certification() {
 
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-white/10 bg-[#181818] p-6 shadow-2xl sm:p-8"
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
           >
 
             <div className="mb-8">
 
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
                 Certification Manager
               </p>
 
-              <h2 className="mt-2 text-2xl font-bold text-white">
+              <h2 className="mt-2 text-2xl font-bold text-slate-950">
                 {editingCertification
                   ? "Edit Certification"
                   : "Add New Certification"}
@@ -626,7 +618,7 @@ function Certification() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   Certificate Name
                 </label>
 
@@ -637,7 +629,7 @@ function Certification() {
                   onChange={handleChange}
                   placeholder="e.g. Java Programming Certificate"
                   required
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-purple-500"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -646,7 +638,7 @@ function Certification() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   Issuing Organization
                 </label>
 
@@ -659,7 +651,7 @@ function Certification() {
                   onChange={handleChange}
                   placeholder="e.g. Oracle"
                   required
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-purple-500"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -668,7 +660,7 @@ function Certification() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   Issue Date
                 </label>
 
@@ -677,7 +669,7 @@ function Certification() {
                   name="issueDate"
                   value={form.issueDate}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-purple-500"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -686,7 +678,7 @@ function Certification() {
 
               <div>
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   Credential ID
                 </label>
 
@@ -696,7 +688,7 @@ function Certification() {
                   value={form.credentialId}
                   onChange={handleChange}
                   placeholder="Credential ID"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-purple-500"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -705,7 +697,7 @@ function Certification() {
 
               <div className="md:col-span-2">
 
-                <label className="mb-2 block text-sm font-semibold text-white/70">
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
                   Credential / Verification URL
                 </label>
 
@@ -715,7 +707,7 @@ function Certification() {
                   value={form.credentialUrl}
                   onChange={handleChange}
                   placeholder="https://..."
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/25 focus:border-purple-500"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
                 />
 
               </div>
@@ -724,12 +716,12 @@ function Certification() {
 
             {/* BUTTONS */}
 
-            <div className="mt-7 flex justify-end gap-3 border-t border-white/10 pt-6">
+            <div className="mt-7 flex justify-end gap-3 border-t border-slate-200 pt-6">
 
               <button
                 type="button"
                 onClick={closeForm}
-                className="rounded-lg border border-white/10 px-5 py-3 text-sm font-semibold text-white/60 transition hover:bg-white/5 hover:text-white"
+                className="rounded-lg border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-950"
               >
                 Cancel
               </button>
@@ -737,7 +729,7 @@ function Certification() {
               <button
                 type="submit"
                 disabled={saving}
-                className="rounded-lg bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-lg bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {saving
                   ? "Saving..."
@@ -761,15 +753,15 @@ function Certification() {
 
         <div className="mb-10 text-center">
 
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/40">
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
             Credentials
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold text-white">
+          <h2 className="mt-3 text-3xl font-bold text-slate-950">
             My Certifications
           </h2>
 
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-white/40">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-500">
             Explore certifications and professional
             credentials earned throughout my journey.
           </p>
@@ -778,17 +770,17 @@ function Certification() {
 
         {certifications.length === 0 ? (
 
-          <div className="rounded-2xl border border-dashed border-white/10 bg-white/[0.03] p-14 text-center">
+          <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-14 text-center">
 
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 text-2xl">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 text-2xl">
               🏆
             </div>
 
-            <h3 className="mt-5 text-lg font-bold text-white">
+            <h3 className="mt-5 text-lg font-bold text-slate-950">
               No certifications yet
             </h3>
 
-            <p className="mt-2 text-sm text-white/40">
+            <p className="mt-2 text-sm text-slate-500">
               Certifications will appear here once
               they are added.
             </p>
@@ -796,7 +788,7 @@ function Certification() {
             {isOwner && (
               <button
                 onClick={openAddForm}
-                className="mt-6 rounded-lg bg-white px-5 py-3 text-sm font-bold text-black"
+                className="mt-6 rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800"
               >
                 + Add First Certification
               </button>
@@ -827,9 +819,9 @@ function Certification() {
           FOOTER
       ====================================== */}
 
-      <section className="border-t border-white/10 px-5 py-10 text-center">
+      <section className="border-t border-slate-200 px-5 py-10 text-center">
 
-        <p className="text-xs uppercase tracking-[0.3em] text-white/30">
+        <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
           SkillStack • Certifications
         </p>
 

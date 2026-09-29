@@ -40,18 +40,18 @@ function AdminDashboard() {
   // ==========================================
 
   return (
-    <main className="min-h-screen bg-[#080808] text-white">
+    <main className="min-h-screen bg-white text-slate-950">
 
       {/* ==========================================
           HEADER
           ========================================== */}
 
-      <header className="border-b border-white/[0.08] bg-white/[0.02]">
+      <header className="border-b border-slate-200 bg-white">
 
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
               SkillStack
             </p>
 
@@ -64,7 +64,7 @@ function AdminDashboard() {
 
           <button
             onClick={handleLogout}
-            className="rounded-xl border border-red-400/20 bg-red-500/10 px-5 py-3 text-sm font-semibold text-red-300 transition hover:bg-red-500/20"
+            className="rounded-xl border border-red-200 bg-red-50 px-5 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-100"
           >
             Logout
           </button>
@@ -84,9 +84,9 @@ function AdminDashboard() {
             ADMIN INFO
             ========================================== */}
 
-        <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/30">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
             Authorized Admin
           </p>
 
@@ -94,11 +94,11 @@ function AdminDashboard() {
             Welcome, {adminUser?.name || "Admin"} 👋
           </h2>
 
-          <p className="mt-2 text-sm text-white/40">
+          <p className="mt-2 text-sm text-slate-500">
             {adminUser?.email || ""}
           </p>
 
-          <div className="mt-4 inline-flex rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+          <div className="mt-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600">
             🔐 Admin Access
           </div>
 
@@ -111,7 +111,7 @@ function AdminDashboard() {
 
         <div className="mt-8">
 
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-400">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
             Portfolio Management
           </p>
 
@@ -119,7 +119,7 @@ function AdminDashboard() {
             Manage Everything
           </h2>
 
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-white/40">
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
             Manage your public portfolio content from this private
             admin dashboard.
           </p>
@@ -135,85 +135,56 @@ function AdminDashboard() {
 
 
           {/* ==========================================
-              PROFILE
+              EXPERTISE
               ========================================== */}
 
-          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
-
-            <div className="text-2xl">
-              👤
-            </div>
-
-            <h3 className="mt-5 text-xl font-bold">
-              Profile
-            </h3>
-
-            <p className="mt-2 text-sm leading-6 text-white/40">
-              Update your name, university, graduation year,
-              GitHub and LinkedIn.
-            </p>
-
-            <button
-              onClick={() => navigate("/admin/profile")}
-              className="mt-6 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90"
-            >
-              Manage Profile →
-            </button>
-
-          </div>
-
-
-          {/* ==========================================
-              PROJECTS
-              ========================================== */}
-
-          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
             <div className="text-2xl">
               💻
             </div>
 
             <h3 className="mt-5 text-xl font-bold">
-              Projects
+              Expertise
             </h3>
 
-            <p className="mt-2 text-sm leading-6 text-white/40">
-              Add, edit and delete your portfolio projects.
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              Add, edit and delete your portfolio expertise.
             </p>
 
             <button
-              onClick={() => navigate("/admin/projects")}
-              className="mt-6 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90"
+              onClick={() => navigate("/admin/expertise")}
+              className="mt-6 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
-              Manage Projects →
+              Manage Expertise →
             </button>
 
           </div>
 
 
           {/* ==========================================
-              EDUCATION
+              HISTORY
               ========================================== */}
 
-          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
             <div className="text-2xl">
               🎓
             </div>
 
             <h3 className="mt-5 text-xl font-bold">
-              Education
+              History
             </h3>
 
-            <p className="mt-2 text-sm leading-6 text-white/40">
-              Add, edit and delete your academic information.
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              Add, edit and delete your academic history.
             </p>
 
             <button
-              onClick={() => navigate("/admin/education")}
-              className="mt-6 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90"
+              onClick={() => navigate("/admin/history")}
+              className="mt-6 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
-              Manage Education →
+              Manage History →
             </button>
 
           </div>
@@ -223,7 +194,7 @@ function AdminDashboard() {
               CERTIFICATIONS
               ========================================== */}
 
-          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
             <div className="text-2xl">
               🏆
@@ -233,13 +204,13 @@ function AdminDashboard() {
               Certifications
             </h3>
 
-            <p className="mt-2 text-sm leading-6 text-white/40">
+            <p className="mt-2 text-sm leading-6 text-slate-500">
               Add, edit and delete your certifications.
             </p>
 
             <button
               onClick={() => navigate("/admin/certifications")}
-              className="mt-6 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90"
+              className="mt-6 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Manage Certifications →
             </button>
@@ -251,7 +222,7 @@ function AdminDashboard() {
               LEETCODE
               ========================================== */}
 
-          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
             <div className="text-2xl">
               🧩
@@ -261,13 +232,13 @@ function AdminDashboard() {
               LeetCode
             </h3>
 
-            <p className="mt-2 text-sm leading-6 text-white/40">
+            <p className="mt-2 text-sm leading-6 text-slate-500">
               Update your LeetCode username and profile URL.
             </p>
 
             <button
               onClick={() => navigate("/admin/leetcode")}
-              className="mt-6 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90"
+              className="mt-6 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Manage LeetCode →
             </button>
