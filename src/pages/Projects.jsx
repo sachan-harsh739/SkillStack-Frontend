@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5001";
+import { API_BASE } from "../config";
 
 function Expertise() {
   const [projects, setExpertise] = useState([]);
@@ -21,6 +21,14 @@ function Expertise() {
     github: "",
     demo: "",
   });
+
+  // ==========================================
+  // GET TOKEN
+  // ==========================================
+
+  const getToken = () => {
+    return localStorage.getItem("adminToken");
+  };
 
   // ==========================================
   // FETCH EXPERTISE
@@ -156,6 +164,15 @@ function Expertise() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const token = getToken();
+
+    if (!token) {
+      setError(
+        "Owner login is required to manage expertise."
+      );
+      return;
+    }
+
     if (!form.title.trim()) {
       setError("Expertise title is required.");
       return;
@@ -186,6 +203,7 @@ function Expertise() {
 
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
 
         body: JSON.stringify({
@@ -243,6 +261,15 @@ function Expertise() {
       return;
     }
 
+    const token = getToken();
+
+    if (!token) {
+      setError(
+        "Owner login is required to manage expertise."
+      );
+      return;
+    }
+
     try {
       setError("");
       setSuccess("");
@@ -251,6 +278,9 @@ function Expertise() {
         `${API_BASE}/api/expertise/${id}`,
         {
           method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 

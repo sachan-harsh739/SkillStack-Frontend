@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_BASE } from "../config";
 import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
@@ -23,7 +24,7 @@ function Login() {
   e.preventDefault();
 
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_BASE}/api/auth/admin-login`, {
+    const response = await fetch(`${API_BASE}/api/auth/admin-login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

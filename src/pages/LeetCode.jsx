@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5001";
+import { API_BASE } from "../config";
 
 function LeetCode() {
   const [profile, setProfile] = useState(null);
@@ -23,10 +23,7 @@ function LeetCode() {
   // ==========================================
 
   const getToken = () => {
-    return (
-      localStorage.getItem("token") ||
-      sessionStorage.getItem("token")
-    );
+    return localStorage.getItem("adminToken");
   };
 
   const isOwner = Boolean(getToken());

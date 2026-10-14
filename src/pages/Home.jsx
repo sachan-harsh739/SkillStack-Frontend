@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5001";
+import { API_BASE } from "../config";
 
 function Home() {
   const [profile, setProfile] = useState(null);

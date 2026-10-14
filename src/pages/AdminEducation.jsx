@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5001";
+import { API_BASE } from "../config";
 
 const emptyForm = {
   type: "graduation",
